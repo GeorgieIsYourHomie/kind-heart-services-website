@@ -1,25 +1,28 @@
-import { Card } from "@/components/ui/card"
+import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export function StorySection() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-center text-balance">Our Story</h2>
-          <Card className="p-8 border-2">
-            <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-              Kind Heart Services was founded with a simple mission: to create a home where seniors receive the
-              personalized care and attention they deserve. As a family-run business, we understand the importance of
-              treating every resident like family.
-            </p>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Our dedicated team of caregivers brings compassion, expertise, and a genuine commitment to enhancing the
-              quality of life for those in our care. We believe that everyone deserves to age with dignity, surrounded
-              by warmth and respect.
-            </p>
-          </Card>
+    <section className="bg-primary w-full px-4 md:px-16 py-14">
+      <div
+        className="flex
+      flex-col md:flex-row md:justify-between md:gap-14"
+      >
+        <h1 className="text-background text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
+          <span className="italic">Our{" "}</span>
+          <span>Story</span>
+        </h1>
+        <div className="max-w-4xl">
+          <p className="font-sans font-medium text-xl lg:text-3xl leading-relaxed text-background mb-8">
+            Kind Heart Services was founded to provide a true home for
+            seniors—one rooted in personalized care, respect, and compassion. As
+            a family-run assisted living residence, we treat every resident like
+            family, offering attentive support from a dedicated caregiving team
+            committed to honor, comfort, and quality of life in a warm,
+            welcoming environment.
+          </p>
         </div>
       </div>
     </section>
-  )
+  );
 }
