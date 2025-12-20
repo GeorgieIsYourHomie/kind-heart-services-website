@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lora, Work_Sans } from "next/font/google";
+import {  Lora, Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 const fontSerif = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
   variable: "--font-serif",
 });
 const fontSans = Work_Sans({
