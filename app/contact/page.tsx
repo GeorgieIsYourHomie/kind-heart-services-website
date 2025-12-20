@@ -1,8 +1,8 @@
-import { Navigation } from "@/components/navigation"
-import { Footer } from "@/components/footer"
-import { ContactForm } from "@/components/contact-form"
-import { Card, CardContent } from "@/components/ui/card"
-import { Phone, Mail, MapPin, Clock } from "lucide-react"
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
+import { ContactForm } from "@/components/ContactForm";
+import { Card, CardContent } from "@/components/ui/card";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function ContactPage() {
   return (
@@ -13,10 +13,13 @@ export default function ContactPage() {
         <section className="bg-gradient-to-br from-accent/20 via-background to-muted/30 py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-balance">Get in Touch</h1>
+              <h1 className="text-4xl md:text-5xl font-serif mb-6 text-balance">
+                Get in Touch
+              </h1>
               <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                We're here to answer your questions and help you find the right care solution for your loved one.
-                Schedule a tour to visit us in person.
+                We're here to answer your questions and help you find the right
+                care solution for your loved one. Schedule a tour to visit us in
+                person.
               </p>
             </div>
           </div>
@@ -36,7 +39,10 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-semibold mb-1">Phone</h3>
-                        <a href="tel:5551234567" className="text-muted-foreground hover:text-primary transition-colors">
+                        <a
+                          href="tel:5551234567"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
                           (555) 123-4567
                         </a>
                       </div>
@@ -116,12 +122,14 @@ export default function ContactPage() {
             <div className="text-center">
               <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">Map location</p>
-              <p className="text-sm text-muted-foreground">123 Maple Street, Minneapolis, MN 55401</p>
+              <p className="text-sm text-muted-foreground">
+                123 Maple Street, Minneapolis, MN 55401
+              </p>
             </div>
           </div>
         </section>
       </main>
       <Footer />
     </>
-  )
+  );
 }

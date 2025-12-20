@@ -12,7 +12,7 @@ export function AmenitiesSection() {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-serif font-bold mb-6 text-balance">Amenities & Activities</h2>
+          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-balance">Amenities & Activities</h2>
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed text-pretty">
             Our home offers a warm, inviting environment with plenty of opportunities for social engagement and
             enrichment. From our cozy library to backyard BBQs, bingo nights, and community outings, there's always

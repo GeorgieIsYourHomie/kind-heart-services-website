@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ModeToggle } from "./ModeToggle"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -33,6 +34,7 @@ export function Navigation() {
             <Button asChild size="sm" className="ml-2">
               <Link href="/contact">Schedule a Tour</Link>
             </Button>
+            {/* <ModeToggle/> */}
           </div>
 
           {/* Mobile Menu Button */}
