@@ -1,67 +1,115 @@
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Heart, Pill, Home, Car, Brain, Utensils } from "lucide-react"
-import Link from "next/link"
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Heart, Pill, Home, Car, Brain, Utensils } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 
 const services = [
   {
     icon: Heart,
     title: "Daily Living Assistance",
-    description: "Compassionate support with bathing, dressing, grooming, and mobility.",
+    description:
+      "Compassionate support with bathing, dressing, grooming, and mobility.",
   },
   {
     icon: Pill,
     title: "Medication Management",
-    description: "Professional oversight to ensure medications are taken safely and on time.",
+    description:
+      "Professional oversight to ensure medications are taken safely and on time.",
   },
   {
     icon: Home,
     title: "Housekeeping & Laundry",
-    description: "Clean, comfortable living spaces maintained with care and attention.",
+    description:
+      "Clean, comfortable living spaces maintained with care and attention.",
   },
   {
     icon: Car,
     title: "Transportation",
-    description: "Safe, reliable transportation to appointments and community activities.",
+    description:
+      "Safe, reliable transportation to appointments and community activities.",
   },
   {
     icon: Brain,
     title: "Memory Care",
-    description: "Specialized support for residents with dementia and cognitive challenges.",
+    description:
+      "Specialized support for residents with dementia and cognitive challenges.",
   },
   {
     icon: Utensils,
     title: "Nutritious Meals",
-    description: "Delicious, home-cooked meals prepared with dietary needs in mind.",
+    description:
+      "Delicious, home-cooked meals prepared with dietary needs in mind.",
   },
-]
+];
 
 export function ServicesSnapshot() {
   return (
-    <section className="py-20 bg-muted/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-serif mb-4 text-balance">Comprehensive Care Services</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            We offer a full range of personalized services designed to support independence and enhance quality of life.
+    <section className="w-full">
+      <div className="min-h-dvh grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
+        {/* ───────────── TOP (1/5) ───────────── */}
+        <div className="flex flex-col items-start gap-4">
+          {/* Left: Text */}
+          <h2 className="text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
+            <span className="italic">Care </span>
+            <span>Services</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
+            We offer a full range of personalized services designed to support
+            independence and enhance quality of life.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service) => (
-            <Link key={service.title} href="/services" className="block group">
-              <Card className="h-full transition-all hover:shadow-lg hover:border-primary/50">
-                <CardHeader>
-                  <div className="mb-4 inline-flex p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                  <CardDescription className="text-base leading-relaxed">{service.description}</CardDescription>
-                </CardHeader>
-              </Card>
-            </Link>
-          ))}
+        <div className="grid grid-cols-2 gap-4 h-full">
+          <div className="relative aspect-5/4 w-full overflow-hidden rounded-sm">
+            <Image
+              src="/images/age-cymru-GStFfDrOygo-unsplash.jpg"
+              alt="Warm assisted living environment"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+          <div className="relative aspect-5/4 w-full overflow-hidden rounded-sm">
+            <Image
+              src="/images/age-cymru-bSXk1lOp8T0-unsplash.jpg"
+              alt="Warm assisted living environment"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+        </div>
+        <div className="w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <Link
+                key={service.title}
+                href="/services"
+                className="block group"
+              >
+                <div className="h-full transition-all hover:shadow-lg hover:border-primary/50 border rounded-sm p-4">
+                  <CardHeader>
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl mb-2">
+                      {service.title}
+                    </CardTitle>
+                    <CardDescription className="text-base leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

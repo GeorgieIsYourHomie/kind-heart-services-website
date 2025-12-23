@@ -8,10 +8,10 @@ export function StorySection() {
         className="flex
       flex-col md:flex-row md:justify-between md:gap-14"
       >
-        <h1 className="text-background text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
+        <h2 className="text-background text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
           <span className="italic">Our{" "}</span>
           <span>Story</span>
-        </h1>
+        </h2>
         <div className="max-w-4xl">
           <p className="font-sans font-medium text-xl lg:text-3xl leading-relaxed text-background mb-8">
             Kind Heart Services was founded to provide a true home for

@@ -10,7 +10,7 @@ export function HeroSection() {
       <div className="flex flex-col lg:grid lg:grid-cols-2 items-start gap-4 lg:gap-30">
         {/* Left: Text */}
         <div className="flex flex-col justify-center">
-          <h1 className="text-4xl md:text-6xl text-balance font-serif leading-tight tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl text-balance text-c font-serif leading-tight tracking-tight mb-6">
             Personalized assisted living, in a place that feels like{" "}
             <span className="italic">home.</span>
           </h1>
