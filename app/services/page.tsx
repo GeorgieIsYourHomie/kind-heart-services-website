@@ -9,117 +9,8 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Heart,
-  Pill,
-  Home,
-  Car,
-  Brain,
-  Utensils,
-  Activity,
-  Users,
-  Clock,
-  Shield,
-} from "lucide-react";
-
-const services = [
-  {
-    icon: Heart,
-    title: "Activities of Daily Living (ADL) Support",
-    description:
-      "Compassionate assistance with bathing, dressing, grooming, toileting, and mobility. Our trained caregivers help maintain dignity and independence while ensuring safety and comfort.",
-    features: [
-      "Personal hygiene assistance",
-      "Dressing and grooming",
-      "Mobility support",
-      "Toileting care",
-    ],
-  },
-  {
-    icon: Activity,
-    title: "Health & Wellness",
-    description:
-      "Professional health monitoring and coordination with healthcare providers to ensure optimal wellbeing.",
-    features: [
-      "Regular RN assessments",
-      "Medication management",
-      "Vital signs monitoring",
-      "Therapy coordination",
-    ],
-  },
-  {
-    icon: Pill,
-    title: "Medication Management",
-    description:
-      "Professional oversight to ensure medications are administered safely, correctly, and on schedule.",
-    features: [
-      "Medication reminders",
-      "Prescription tracking",
-      "Doctor coordination",
-      "Safe storage",
-    ],
-  },
-  {
-    icon: Home,
-    title: "Housekeeping & Laundry",
-    description:
-      "Maintain a clean, comfortable living environment with regular housekeeping and personal laundry services.",
-    features: [
-      "Room cleaning",
-      "Bed linen changes",
-      "Personal laundry",
-      "Common area maintenance",
-    ],
-  },
-  {
-    icon: Utensils,
-    title: "Nutritious Meals",
-    description:
-      "Delicious, home-cooked meals prepared fresh daily with attention to dietary restrictions and preferences.",
-    features: [
-      "Three meals daily plus snacks",
-      "Special diet accommodations",
-      "Fresh ingredients",
-      "Dining together",
-    ],
-  },
-  {
-    icon: Car,
-    title: "Transportation Services",
-    description:
-      "Safe, reliable transportation to medical appointments, errands, and community activities.",
-    features: [
-      "Medical appointments",
-      "Shopping trips",
-      "Social outings",
-      "Family visits",
-    ],
-  },
-  {
-    icon: Brain,
-    title: "Memory & Dementia Care",
-    description:
-      "Specialized support for residents with Alzheimer's, dementia, and other cognitive challenges.",
-    features: [
-      "Cognitive stimulation",
-      "Routine maintenance",
-      "Safety protocols",
-      "Family education",
-    ],
-  },
-  {
-    icon: Users,
-    title: "Social & Recreational Activities",
-    description:
-      "Engaging activities that promote social connection, mental stimulation, and overall wellbeing.",
-    features: [
-      "Group activities",
-      "Entertainment events",
-      "Outdoor excursions",
-      "Creative programs",
-    ],
-  },
-];
+import { services } from "@/lib/data/services";
+import { Clock, Shield } from "lucide-react";
 
 export default function ServicesPage() {
   return (
@@ -147,21 +38,25 @@ export default function ServicesPage() {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {services.map((service) => (
-                <Card key={service.title} className="border-2">
+                <Card
+                  id={service.slug}
+                  key={service.servicePageTitle}
+                  className="border-2 scroll-mt-28"
+                >
                   <CardHeader>
                     <div className="inline-flex p-3 bg-primary/10 rounded-lg mb-3 w-fit">
                       <service.icon className="h-7 w-7 text-primary" />
                     </div>
                     <CardTitle className="text-2xl mb-2">
-                      {service.title}
+                      {service.servicePageTitle}
                     </CardTitle>
                     <CardDescription className="text-base leading-relaxed">
-                      {service.description}
+                      {service.servicePageDescription}
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {service.features.map((feature) => (
+                      {service.servicePageFeatures.map((feature) => (
                         <li key={feature} className="flex items-start gap-2">
                           <div className="w-1.5 h-1.5 rounded-full bg-secondary mt-2 flex-shrink-0" />
                           <span className="text-muted-foreground">
