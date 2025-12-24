@@ -11,10 +11,9 @@ const amenities = [
 export function AmenitiesSection() {
   return (
     <section className="w-full">
-      <div className="min-h-dvh grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
+      <div className="border-5 grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* Images */}
-        <div className="relative aspect-5/4 w-full md:h-1/2
-         overflow-hidden rounded-sm">
+        <div className="relative w-full h-70 md:h-90 overflow-hidden rounded-sm">
           <Image
             src="/images/pexels-rdne-6148866.jpg"
             alt="Warm assisted living environment"
@@ -44,7 +43,9 @@ export function AmenitiesSection() {
                 <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
                   <amenity.icon className="h-6 w-6 text-primary" />
                 </div>
-                <span className="text-sm text font-medium">{amenity.label}</span>
+                <span className="text-sm text font-medium">
+                  {amenity.label}
+                </span>
               </div>
             ))}
           </div>

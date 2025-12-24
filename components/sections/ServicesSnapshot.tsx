@@ -7,6 +7,7 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { services } from "@/lib/data/services";
+import { Button } from "../ui/button";
 
 export function ServicesSnapshot() {
   return (
@@ -45,7 +46,7 @@ export function ServicesSnapshot() {
             />
           </div>
         </div>
-        <div className="w-full">
+        <div className="w-full flex flex-col justify-center gap-4 md: gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => {
               // Don't render Health and Social
@@ -79,6 +80,13 @@ export function ServicesSnapshot() {
               );
             })}
           </div>
+
+          <div className="flex flex-col sm:flex-row justify-center">
+            <Button variant={"outline"} asChild size="lg">
+              <Link href="/services">See All Services</Link>
+            </Button>
+          </div>
+
         </div>
       </div>
     </section>

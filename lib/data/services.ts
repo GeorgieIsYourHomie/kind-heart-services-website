@@ -10,13 +10,6 @@ import {
 } from "lucide-react";
 import type { Service } from "../types/services";
 
-//  - import the services array objects to services page (might need type)
-//  - make map list not output cards for "health and wellness" and "social"
-//  - Add hrefs for link href in map function to take to specific page services
-//  - Add href to services page
-//  - Add View All Button Below Services snapshots
-//  - Test functionality
-
 export const services: Service[] = [
   {
     slug: "adl-support",
