@@ -16,7 +16,7 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="max-w-480 mx-auto">
         <HeroSection />
         <StorySection />
         <ServicesSnapshot />

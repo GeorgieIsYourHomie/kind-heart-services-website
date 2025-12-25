@@ -11,7 +11,7 @@ const amenities = [
 export function AmenitiesSection() {
   return (
     <section className="w-full">
-      <div className="border-5 grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* Images */}
         <div className="relative w-full h-70 md:h-90 overflow-hidden rounded-sm">
           <Image

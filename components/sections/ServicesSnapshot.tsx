@@ -14,7 +14,7 @@ export function ServicesSnapshot() {
     <section className="w-full bg-primary/5">
       <div className="min-h-dvh grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* ───────────── TOP (1/5) ───────────── */}
-        <div className="flex flex-col items-start gap-4">
+        <div className="text-center flex flex-col items-center gap-4">
           {/* Left: Text */}
           <h2 className="text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
             <span className="italic">Care </span>
@@ -27,7 +27,7 @@ export function ServicesSnapshot() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 h-full">
-          <div className="col-span-2 md:col-span-1 relative aspect-5/4 w-full overflow-hidden rounded-sm">
+          <div className="col-span-2 md:col-span-1 relative aspect-4/3 w-full overflow-hidden rounded-sm">
             <Image
               src="/images/age-cymru-GPrh_GLiWCI-unsplash.jpg"
               alt="Warm assisted living environment"
@@ -36,7 +36,7 @@ export function ServicesSnapshot() {
               priority
             />
           </div>
-          <div className="relative aspect-5/4 w-full overflow-hidden rounded-sm hidden md:block">
+          <div className="relative aspect-4/3 w-full overflow-hidden rounded-sm hidden md:block">
             <Image
               src="/images/age-cymru-bSXk1lOp8T0-unsplash.jpg"
               alt="Warm assisted living environment"
@@ -46,7 +46,7 @@ export function ServicesSnapshot() {
             />
           </div>
         </div>
-        <div className="w-full flex flex-col justify-center gap-4 md: gap-6">
+        <div className="w-full flex flex-col justify-center gap-4 md:gap-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service) => {
               // Don't render Health and Social
@@ -86,7 +86,6 @@ export function ServicesSnapshot() {
               <Link href="/services">See All Services</Link>
             </Button>
           </div>
-
         </div>
       </div>
     </section>
