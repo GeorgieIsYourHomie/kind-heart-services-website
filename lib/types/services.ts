@@ -10,3 +10,10 @@ export type Service = {
   servicePageDescription: string;
   servicePageFeatures: string[];
 };
+
+export type ServiceGroup = {
+  id: string;
+  title: string;
+  description: string;
+  services: Service[];
+};

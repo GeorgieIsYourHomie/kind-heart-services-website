@@ -6,13 +6,13 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { services } from "@/lib/data/services";
+import { serviceGroups } from "@/lib/data/services";
 import { Button } from "../ui/button";
 
 export function ServicesSnapshot() {
   return (
     <section className="w-full bg-primary/5">
-      <div className="min-h-dvh grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
+      <div className="grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* ───────────── TOP (1/5) ───────────── */}
         <div className="text-center flex flex-col items-center gap-4">
           {/* Left: Text */}
@@ -47,38 +47,33 @@ export function ServicesSnapshot() {
           </div>
         </div>
         <div className="w-full flex flex-col justify-center gap-4 md:gap-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service) => {
-              // Don't render Health and Social
-              if (
-                service.serviceSnapshotTitle === "Transportation" ||
-                service.serviceSnapshotTitle === "Social Activities"
-              ) {
-                return null; // don't render a card
-              }
+          <div className="flex flex-col gap-0 lg:gap-6 lg:grid lg:grid-cols-3">
+            {serviceGroups.map((group) =>
+              group.services.map((service) => {
+                // only show these three services
+                if (
+                  service.slug !== "adl-support" &&
+                  service.slug !== "medication-management" &&
+                  service.slug !== "structured-engagement"
+                ) {
+                  return null;
+                }
 
-              return (
-                <Link
-                  key={service.serviceSnapshotTitle}
-                  href={service.href}
-                  className="block group"
-                >
-                  <div className="h-full transition-all border-2 hover:shadow-lg hover:border-primary/50 rounded-sm py-6 px-2">
-                    <CardHeader>
-                      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                        <service.icon className="h-6 w-6 text-primary" />
-                      </div>
-                      <CardTitle className="text-xl mb-2">
-                        {service.serviceSnapshotTitle}
-                      </CardTitle>
-                      <CardDescription className="text-base leading-relaxed">
-                        {service.serviceSnapshotDescription}
-                      </CardDescription>
-                    </CardHeader>
+                return (
+                  <div key={service.slug} className="h-full py-6 px-2">
+                    <div className="mb-4 flex w-10 h-10 items-center justify-center rounded-lg bg-primary/10">
+                      <service.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="font-medium text-md mb-2">
+                      {service.serviceSnapshotTitle}
+                    </h3>
+                    <p className="text-muted-foreground text-base leading-relaxed">
+                      {service.serviceSnapshotDescription}
+                    </p>
                   </div>
-                </Link>
-              );
-            })}
+                );
+              })
+            )}
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center">
