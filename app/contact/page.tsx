@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { ContactForm } from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-contact-info";
 
 export default function ContactPage() {
   return (
@@ -43,7 +44,7 @@ export default function ContactPage() {
                           href="tel:5551234567"
                           className="text-muted-foreground hover:text-primary transition-colors"
                         >
-                          (555) 123-4567
+                          (612) 405-3679
                         </a>
                       </div>
                     </div>
@@ -59,10 +60,10 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold mb-1">Email</h3>
                         <a
-                          href="mailto:info@kindheartservices.com"
+                          href="mailto:kindheartservicesllc@gmail.com"
                           className="text-muted-foreground hover:text-primary transition-colors break-all"
                         >
-                          info@kindheartservices.com
+                          kindheartservicesllc@gmail.com
                         </a>
                       </div>
                     </div>
@@ -117,13 +118,16 @@ export default function ContactPage() {
         </section>
 
         {/* Map Placeholder */}
-        <section className="py-0">
+        <section className="border-8 border-amber-300 py-0">
           <div className="w-full h-96 bg-muted/50 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
               <p className="text-muted-foreground">Map location</p>
               <p className="text-sm text-muted-foreground">
-                123 Maple Street, Minneapolis, MN 55401
+                {kindHeartServicesContactInfo.address},{" "}
+                {kindHeartServicesContactInfo.city},{" "}
+                {kindHeartServicesContactInfo.state}{" "}
+                {kindHeartServicesContactInfo.zipcode}
               </p>
             </div>
           </div>

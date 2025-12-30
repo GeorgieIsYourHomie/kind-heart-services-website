@@ -47,7 +47,7 @@ export function ServicesSnapshot() {
           </div>
         </div>
         <div className="w-full flex flex-col justify-center gap-4 md:gap-6">
-          <div className="flex flex-col gap-0 lg:gap-6 lg:grid lg:grid-cols-3">
+          <div className="flex flex-col justify-center gap-6 lg:grid lg:grid-cols-3">
             {serviceGroups.map((group) =>
               group.services.map((service) => {
                 // only show these three services
@@ -60,25 +60,37 @@ export function ServicesSnapshot() {
                 }
 
                 return (
-                  <div key={service.slug} className="h-full py-6 px-2">
-                    <div className="mb-4 flex w-10 h-10 items-center justify-center rounded-lg bg-primary/10">
-                      <service.icon className="w-5 h-5 text-primary" />
+                  // Add icons from health and saftey section layout
+                  <div key={service.slug} className="flex flex-row gap-4">
+                    <div className="shrink-0">
+                      <div className="bg-primary/10 w-11 h-11 rounded-sm bg-accent/20 flex items-center justify-center">
+                        <service.icon className="w-7 h-7 text-primary" />
+                      </div>
                     </div>
-                    <h3 className="font-medium text-md mb-2">
-                      {service.serviceSnapshotTitle}
-                    </h3>
-                    <p className="text-muted-foreground text-base leading-relaxed">
-                      {service.serviceSnapshotDescription}
-                    </p>
+                    <div>
+                      <h4 className="font-medium text-md mb-2">
+                        {service.serviceSnapshotTitle}
+                      </h4>
+                      <p className="text-background/90 text-muted-foreground text-base leading-relaxed">
+                        {service.serviceSnapshotDescription}
+                      </p>
+                    </div>
                   </div>
                 );
               })
             )}
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center">
-            <Button variant={"outline"} asChild size="lg">
-              <Link href="/services">See All Services</Link>
+          <div className="flex justify-center">
+            <Button
+              variant="outline"
+              size="lg"
+              className="w-full md:w-auto"
+              asChild
+            >
+              <Link href="/services" className="inline-flex">
+                See All Services
+              </Link>
             </Button>
           </div>
         </div>

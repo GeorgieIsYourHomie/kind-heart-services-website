@@ -4,7 +4,7 @@ import Image from "next/image";
 const amenities = [
   { icon: BookOpen, label: "Reading Library" },
   { icon: Palmtree, label: "Garden & Patio" },
-  { icon: Music, label: "Music & Entertainment" },
+  { icon: Music, label: "Music & Engagement" },
   { icon: Flower, label: "Nature Walks" },
 ];
 
@@ -40,10 +40,10 @@ export function AmenitiesSection() {
                 key={amenity.label}
                 className="flex flex-col items-center md:items-start gap-3"
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-primary/10">
                   <amenity.icon className="h-6 w-6 text-primary" />
                 </div>
-                <span className="text-sm text font-medium">
+                <span className="text-sm text-left font-medium">
                   {amenity.label}
                 </span>
               </div>

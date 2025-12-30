@@ -1,10 +1,12 @@
-import { Shield, Sparkles, Users } from "lucide-react"
+import { Shield, Sparkles, Users } from "lucide-react";
+import Image from "next/image";
 
 const protocols = [
   {
     icon: Shield,
     title: "Health Protocols",
-    description: "Regular health monitoring and professional nursing assessments",
+    description:
+      "Regular health monitoring and professional nursing assessments",
   },
   {
     icon: Sparkles,
@@ -16,31 +18,50 @@ const protocols = [
     title: "Social Distancing",
     description: "Safe gathering spaces and physical distancing when needed",
   },
-]
+];
 
 export function HealthSafetySection() {
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-serif mb-6 text-center text-balance">Health & Safety</h2>
-          <p className="text-lg text-muted-foreground text-center mb-12 text-pretty">
+    <section className="bg-primary w-full">
+      <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
+        <div className="w-full mx-auto text-background">
+          <h2 className="max-w-6xl text-4xl md:text-5xl text-left text-balance font-serif leading-tight tracking-tight mb-6">
+            Health & <span className="italic">Safety</span>
+          </h2>
+          <p className="text-lg text-left mb-12 text-pretty">
             Your loved one's safety and wellbeing are our top priorities
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {protocols.map((protocol) => (
-              <div key={protocol.title} className="text-center">
-                <div className="inline-flex p-4 bg-secondary/20 rounded-full mb-4">
-                  <protocol.icon className="h-8 w-8 text-secondary" />
+              <div key={protocol.title} className="flex flex-row gap-4">
+                <div className="shrink-0">
+                  <div className="w-11 h-11 rounded-sm bg-accent/20 flex items-center justify-center">
+                    <protocol.icon className="h-7 w-7 text-accent" />
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">{protocol.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{protocol.description}</p>
+                <div>
+                  <h4 className="font-medium text-md mb-2">{protocol.title}</h4>
+                  <p className="text-background/90 text-base leading-relaxed">
+                    {protocol.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Images */}
+        <div className="relative w-full h-86 sm:h-80 md:h-full overflow-hidden rounded-sm">
+          <Image
+            src="/images/fanny-renaud-71KMQp-Qkvw-unsplash.jpg"
+            alt="Warm assisted living environment"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
       </div>
     </section>
-  )
+  );
 }
