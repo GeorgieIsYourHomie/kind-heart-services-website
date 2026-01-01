@@ -10,10 +10,10 @@ const amenities = [
 
 export function AmenitiesSection() {
   return (
-    <section className="w-full">
+    <section className="bg-primary/5 w-full">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* Images */}
-        <div className="relative w-full h-70 md:h-90 overflow-hidden rounded-sm">
+        <div className="col-span-2 md:col-span-1 relative w-full h-70 md:h-90 overflow-hidden rounded-sm">
           <Image
             src="/images/pexels-rdne-6148866.jpg"
             alt="Warm assisted living environment"
@@ -23,7 +23,7 @@ export function AmenitiesSection() {
           />
         </div>
         {/* Content */}
-        <div className="max-w-full mx-auto">
+        <div className="col-span-1 max-w-full mx-auto">
           <h2 className="text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6">
             <span>Amenities & </span>
             <span className="italic">Activities</span>
@@ -34,7 +34,7 @@ export function AmenitiesSection() {
             library to backyard BBQs, bingo nights, and community outings,
             there's always something to look forward to.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="hidden lg:grid grid-cols-4 gap-6">
             {amenities.map((amenity) => (
               <div
                 key={amenity.label}
@@ -49,6 +49,21 @@ export function AmenitiesSection() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="col-span-2 lg:hidden grid grid-cols-2 md:grid-cols-4 gap-6">
+          {amenities.map((amenity) => (
+            <div
+              key={amenity.label}
+              className="flex flex-col items-center gap-3"
+            >
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-primary/10">
+                <amenity.icon className="h-6 w-6 text-primary" />
+              </div>
+              <span className="text-sm text-left font-medium">
+                {amenity.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
     </section>

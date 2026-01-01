@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { StorySection } from "@/components/sections/StorySection";
-import { ServicesSnapshot } from "@/components/sections/ServicesSnapshot";
+import { ServicesSnapshot } from "@/components/sections/ServicesSection";
 import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { HealthSafetySection } from "@/components/sections/HealthSafetySection";
@@ -18,7 +18,7 @@ export default function HomePage() {
   return (
     <>
       <Navigation />
-      <main className="max-w-480 mx-auto">
+      <main className="max-w-480 mx-auto scroll-mt-20">
         <HeroSection />
         <StorySection />
         <ServicesSnapshot />

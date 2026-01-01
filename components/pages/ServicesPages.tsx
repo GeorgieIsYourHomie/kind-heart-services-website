@@ -59,8 +59,8 @@ export default function ServicesPage() {
                     return (
                       <div key={service.slug} className="flex gap-4">
                         <div className="shrink-0">
-                          <div className="w-11 h-11 rounded-sm bg-accent/20 flex items-center justify-center">
-                            <Icon className="w-7 h-7 text-accent" />
+                          <div className="w-12 h-12 rounded-sm bg-accent/20 flex items-center justify-center">
+                            <Icon className="w-6 h-6 text-accent" />
                           </div>
                         </div>
                         <div>

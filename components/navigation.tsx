@@ -40,7 +40,7 @@ export function Navigation() {
               Services
             </Link>
             <Link
-              href="/contact"
+              href="/#contact-section"
               className="text-sm font-medium hover:text-primary transition-colors"
             >
               Contact
@@ -87,7 +87,7 @@ export function Navigation() {
                 Services
               </Link>
               <Link
-                href="/contact"
+                href="/#contact-section"
                 className="text-sm font-medium hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
               >

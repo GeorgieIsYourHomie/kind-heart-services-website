@@ -1,159 +1,129 @@
+"use client";
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Users, HomeIcon, Award } from "lucide-react";
+import Image from "next/image";
 
-const values = [
+const tabs = [
   {
-    icon: Heart,
-    title: "Compassion",
-    description:
-      "We treat every resident with kindness, empathy, and genuine care.",
+    id: "story",
+    label: "Our Story",
+    title: "A Home Built on Love and Family Values",
+    content:
+      "Our assisted living home was founded with a simple belief: that every senior deserves to live with dignity, warmth, and genuine care. Started by a family who experienced firsthand the challenge of finding compassionate, personalized care for a loved one, we created the kind of place we wished had existed—a true home, not an institution. Every day, we honor that commitment with consistency, respect, and unwavering dedication to the people we serve.",
+    image: "/images/pexels-jsme-mila-523821574-18459207.jpg",
+    imageAlt:
+      "Caregiver having a warm conversation with a resident in a comfortable living space",
   },
   {
-    icon: Users,
-    title: "Family-Centered",
-    description:
-      "We maintain close relationships with families and encourage involvement.",
+    id: "mission",
+    label: "Our Mission",
+    title: "Care That Honors Independence and Wellbeing",
+    content:
+      "Our mission is to provide daily care that balances safety with freedom, support with independence. We believe in treating each resident as an individual—honoring their preferences, their pace, and their dignity. From shared meals to quiet conversations, we focus on emotional wellbeing just as much as physical health. Our caregivers are not just staff; they are companions who listen, respect, and truly care.",
+    image: "/images/pexels-jsme-mila-523821574-29372710.jpg",
+    imageAlt: "Caregiver gently supporting a resident during a daily activity",
   },
   {
-    icon: HomeIcon,
-    title: "Home Environment",
-    description: "Our residence feels like home, not an institution.",
-  },
-  {
-    icon: Award,
-    title: "Excellence",
-    description:
-      "We maintain the highest standards of care and professionalism.",
-  },
-];
-
-const team = [
-  {
-    name: "Linda Johnson",
-    role: "Founder & Director",
-    bio: "With over 20 years in senior care, Linda founded Kind Heart Services to provide the personalized attention she believes every senior deserves.",
-  },
-  {
-    name: "Maria Garcia, RN",
-    role: "Director of Nursing",
-    bio: "Maria brings 15 years of nursing experience and a passion for creating individualized care plans that support both health and happiness.",
-  },
-  {
-    name: "James Patterson",
-    role: "Lead Caregiver",
-    bio: "James has been with our team for 8 years, known for his patience, humor, and dedication to making every day special for our residents.",
+    id: "vision",
+    label: "Our Vision",
+    title: "A Future Where Aging is Peaceful and Dignified",
+    content:
+      "We envision a community where aging is not something to fear, but a natural stage of life met with grace, comfort, and connection. Our long-term commitment is to continually elevate the quality of care—creating environments filled with natural light, calm moments, and meaningful relationships. We believe in aging with dignity, surrounded by people who see you, know you, and care deeply about your wellbeing.",
+    image: "/images/pexels-arthur-swiffen-172080999-14185266.jpg",
+    imageAlt:
+      "Residents enjoying a peaceful moment in a naturally lit common area",
   },
 ];
 
 export default function AboutPage() {
+  const [activeTab, setActiveTab] = useState("story");
+  const currentTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+
   return (
     <>
       <Navigation />
-      <main>
-        {/* Hero */}
-        <section className="bg-gradient-to-br from-accent/20 via-background to-muted/30 py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-serif mb-6 text-balance">
-                About Kind Heart Services
-              </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                A family business dedicated to providing compassionate,
-                personalized care in a warm and welcoming home environment.
-              </p>
-            </div>
+      <main className="min-h-dvh bg-[#FAF8F5]">
+        {/* Intro Section */}
+        <section className="mx-auto max-w-3xl px-6 py-16 text-center md:py-24">
+          <div className="mb-6 inline-flex items-center rounded-full border border-[#D4C4B0] bg-white px-4 py-1.5">
+            <span className="font-serif text-sm text-[#6B5D4F]">
+              Who We Are
+            </span>
           </div>
+
+          <p className="mx-auto mb-8 max-w-2xl font-serif text-lg leading-relaxed text-[#3D3630] md:text-xl">
+            We are a family-run assisted living home dedicated to providing
+            compassionate, personalized care in a warm, home-like environment.
+            Every resident is treated with dignity, respect, and genuine
+            kindness—because this is more than a residence. It's a home.
+          </p>
+
+          <Button
+            size="lg"
+            className="bg-[#8B7355] text-white hover:bg-[#6B5D4F]"
+          >
+            Schedule a Tour
+          </Button>
         </section>
 
-        {/* Mission */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-serif mb-6 text-center text-balance">
-                Our Mission
-              </h2>
-              <Card className="border-2">
-                <CardContent className="pt-8 pb-6">
-                  <p className="text-lg leading-relaxed text-muted-foreground mb-4">
-                    At Kind Heart Services, our mission is simple yet profound:
-                    to provide seniors with a dignified, comfortable living
-                    experience where they feel valued, safe, and truly at home.
-                  </p>
-                  <p className="text-lg leading-relaxed text-muted-foreground">
-                    We believe that quality care goes beyond meeting physical
-                    needs—it's about fostering connection, maintaining
-                    independence, and honoring the unique story of each
-                    individual we serve.
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+        {/* Tab Navigation */}
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <div
+            role="tablist"
+            aria-label="About us sections"
+            className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`panel-${tab.id}`}
+                id={`tab-${tab.id}`}
+                onClick={() => setActiveTab(tab.id)}
+                className={`relative pb-4 font-serif text-lg transition-colors ${
+                  activeTab === tab.id
+                    ? "text-[#8B7355]"
+                    : "text-[#6B5D4F] hover:text-[#8B7355]"
+                }`}
+              >
+                {tab.label}
+                {activeTab === tab.id && (
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8B7355]" />
+                )}
+              </button>
+            ))}
           </div>
-        </section>
 
-        {/* Values */}
-        <section className="py-20 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif mb-4 text-balance">
-                Our Core Values
+          {/* Tab Content */}
+          <div
+            role="tabpanel"
+            id={`panel-${currentTab.id}`}
+            aria-labelledby={`tab-${currentTab.id}`}
+            className="grid gap-8 md:grid-cols-2 md:gap-12"
+          >
+            {/* Image */}
+            <div className="h-[400] order-2 md:order-1 w-full overflow-hidden rounded-sm">
+              <Image
+                width={600}
+                height={400}
+                src={currentTab.image || "/placeholder.svg"}
+                alt={currentTab.imageAlt}
+                className="h-full w-full rounded-2xl object-cover object-center"
+              />
+            </div>
+
+            {/* Text Content */}
+            <div className="order-1 flex flex-col justify-center md:order-2">
+              <h2 className="mb-4 font-serif text-3xl leading-tight text-[#3D3630] md:text-4xl">
+                {currentTab.title}
               </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                These principles guide everything we do
+              <p className="mb-6 leading-relaxed text-[#5A4F43] md:text-lg">
+                {currentTab.content}
               </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {values.map((value) => (
-                <Card key={value.title} className="text-center">
-                  <CardContent className="pt-8 pb-6">
-                    <div className="inline-flex p-4 bg-primary/10 rounded-full mb-4">
-                      <value.icon className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-xl font-semibold mb-3">
-                      {value.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {value.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Team */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif mb-4 text-balance">
-                Meet Our Team
-              </h2>
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Dedicated professionals who care deeply about our residents
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {team.map((member) => (
-                <Card key={member.name}>
-                  <CardContent className="pt-8 pb-6">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-center mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm text-primary text-center mb-4">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground leading-relaxed text-center">
-                      {member.bio}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
             </div>
           </div>
         </section>

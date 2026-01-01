@@ -37,7 +37,7 @@ export function ContactForm() {
   };
 
   return (
-    <Card>
+    <Card className="shadow-xl rounded-none rounded-tl-sm rounded-bl-sm md:rounded-tl-none md:rounded-bl-none rounded-tr-sm rounded-br-sm">
       <CardHeader>
         <CardTitle className="text-2xl">Get in Touch</CardTitle>
         <CardDescription className="text-base">

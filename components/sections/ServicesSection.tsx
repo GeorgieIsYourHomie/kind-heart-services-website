@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 
 export function ServicesSnapshot() {
   return (
-    <section className="w-full bg-primary/5">
+    <section className="w-full bg-background">
       <div className="grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* ───────────── TOP (1/5) ───────────── */}
         <div className="text-center flex flex-col items-center gap-4">
@@ -46,7 +46,7 @@ export function ServicesSnapshot() {
             />
           </div>
         </div>
-        <div className="w-full flex flex-col justify-center gap-4 md:gap-6">
+        <div className="w-full flex flex-col justify-center gap-8 md:gap-12">
           <div className="flex flex-col justify-center gap-6 lg:grid lg:grid-cols-3">
             {serviceGroups.map((group) =>
               group.services.map((service) => {
@@ -63,15 +63,15 @@ export function ServicesSnapshot() {
                   // Add icons from health and saftey section layout
                   <div key={service.slug} className="flex flex-row gap-4">
                     <div className="shrink-0">
-                      <div className="bg-primary/10 w-11 h-11 rounded-sm bg-accent/20 flex items-center justify-center">
-                        <service.icon className="w-7 h-7 text-primary" />
+                      <div className="h-12 w-12 bg-primary/10 rounded-sm flex items-center justify-center">
+                        <service.icon className="w-6 h-6 text-primary" />
                       </div>
                     </div>
                     <div>
                       <h4 className="font-medium text-md mb-2">
                         {service.serviceSnapshotTitle}
                       </h4>
-                      <p className="text-background/90 text-muted-foreground text-base leading-relaxed">
+                      <p className="text-muted-foreground text-base leading-relaxed">
                         {service.serviceSnapshotDescription}
                       </p>
                     </div>
@@ -85,7 +85,7 @@ export function ServicesSnapshot() {
             <Button
               variant="outline"
               size="lg"
-              className="w-full md:w-auto"
+              className="w-full max-w-md"
               asChild
             >
               <Link href="/services" className="inline-flex">

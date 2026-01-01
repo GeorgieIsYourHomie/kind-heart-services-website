@@ -22,13 +22,13 @@ const protocols = [
 
 export function HealthSafetySection() {
   return (
-    <section className="bg-primary w-full">
+    <section className="bg-primary/5 w-full">
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
-        <div className="w-full mx-auto text-background">
+        <div className="w-full mx-auto text-foreground">
           <h2 className="max-w-6xl text-4xl md:text-5xl text-left text-balance font-serif leading-tight tracking-tight mb-6">
             Health & <span className="italic">Safety</span>
           </h2>
-          <p className="text-lg text-left mb-12 text-pretty">
+          <p className="text-muted-foreground text-lg text-left mb-12 text-pretty">
             Your loved one's safety and wellbeing are our top priorities
           </p>
 
@@ -36,13 +36,13 @@ export function HealthSafetySection() {
             {protocols.map((protocol) => (
               <div key={protocol.title} className="flex flex-row gap-4">
                 <div className="shrink-0">
-                  <div className="w-11 h-11 rounded-sm bg-accent/20 flex items-center justify-center">
-                    <protocol.icon className="h-7 w-7 text-accent" />
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-sm bg-primary/10">
+                    <protocol.icon className="h-6 w-6 text-primary" />
                   </div>
                 </div>
                 <div>
-                  <h4 className="font-medium text-md mb-2">{protocol.title}</h4>
-                  <p className="text-background/90 text-base leading-relaxed">
+                  <h4 className="font-semibold text-md mb-2">{protocol.title}</h4>
+                  <p className="text-base leading-relaxed">
                     {protocol.description}
                   </p>
                 </div>

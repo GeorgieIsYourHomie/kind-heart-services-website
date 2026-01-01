@@ -9,7 +9,7 @@ export default function ContactPage() {
   return (
     <>
       <Navigation />
-      <main className="max-w-480">
+      <main className="max-w-480 scroll-mt-20">
         <ServicesPages />
       </main>
       <Footer />

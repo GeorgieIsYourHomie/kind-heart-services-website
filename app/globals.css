@@ -3,6 +3,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   /* Custom warm, trustworthy color palette for assisted living */
   --background: oklch(0.99 0.005 95);

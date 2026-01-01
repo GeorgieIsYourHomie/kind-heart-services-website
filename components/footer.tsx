@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-contact-info";
 
 export function Footer() {
   return (
     <footer className="border-t bg-muted/30">
       <div className="px-4 md:px-16 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
+        <div className="flex flex-wrap md:grid md:grid-cols-3 gap-12">
+          <div className="flex-2">
             <h3 className="text-lg font-serif font-semibold text-primary mb-4">
               Kind Heart Services
             </h3>
@@ -16,7 +17,7 @@ export function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="flex-1">
             <h3 className="text-sm font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -45,7 +46,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/#contact-section"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Contact
@@ -54,23 +55,28 @@ export function Footer() {
             </ul>
           </div>
 
-          <div>
+          <div className="flex-1">
             <h3 className="text-sm font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-muted-foreground">(612) 405-3679</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <Phone className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  kindheartservicesllc@gmail.com
+                  {kindHeartServicesContactInfo.phone}
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                <Mail className="h-4 w-4 text-primary mt-0.5 shrink-0" />
                 <span className="text-muted-foreground">
-                  Minneapolis, Minnesota
+                  {kindHeartServicesContactInfo.email}
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                <span className="text-muted-foreground">
+                  {kindHeartServicesContactInfo.address} <br />
+                  {kindHeartServicesContactInfo.city},{" "}
+                  {kindHeartServicesContactInfo.state}{" "}
+                  {kindHeartServicesContactInfo.zipcode}
                 </span>
               </li>
             </ul>
