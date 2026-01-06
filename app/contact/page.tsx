@@ -11,16 +11,23 @@ export default function ContactPage() {
       <Navigation />
       <main>
         {/* Hero */}
-        <section className="bg-gradient-to-br from-accent/20 via-background to-muted/30 py-20">
+        <section 
+          className="bg-gradient-to-br from-accent/20 via-background to-muted/30 py-20"
+          aria-labelledby="contact-hero-heading"
+        >
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-serif mb-6 text-balance">
+              <h1 
+                id="contact-hero-heading"
+                className="text-4xl md:text-5xl font-serif mb-6 text-balance"
+              >
                 Get in Touch
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-                We're here to answer your questions and help you find the right
-                care solution for your loved one. Schedule a tour to visit us in
-                person.
+                We're here to answer your questions about assisted living in Minnesota 
+                and help you find the right care solution for your loved one. Schedule 
+                a tour to visit our facility in person and see how we create a warm, 
+                home-like environment for our residents.
               </p>
             </div>
           </div>
@@ -41,8 +48,9 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-semibold mb-1">Phone</h3>
                         <a
-                          href="tel:5551234567"
+                          href="tel:6124053679"
                           className="text-muted-foreground hover:text-primary transition-colors"
+                          aria-label="Call us at 612-405-3679"
                         >
                           (612) 405-3679
                         </a>
@@ -62,6 +70,7 @@ export default function ContactPage() {
                         <a
                           href="mailto:kindheartservicesllc@gmail.com"
                           className="text-muted-foreground hover:text-primary transition-colors break-all"
+                          aria-label="Email us at kindheartservicesllc@gmail.com"
                         >
                           kindheartservicesllc@gmail.com
                         </a>
@@ -76,14 +85,14 @@ export default function ContactPage() {
                       <div className="p-3 bg-primary/10 rounded-lg">
                         <MapPin className="h-6 w-6 text-primary" />
                       </div>
-                      <div>
+                      <address className="not-italic">
                         <h3 className="font-semibold mb-1">Location</h3>
                         <p className="text-muted-foreground">
-                          123 Maple Street
+                          {kindHeartServicesContactInfo.address}
                           <br />
-                          Minneapolis, MN 55401
+                          {kindHeartServicesContactInfo.city}, {kindHeartServicesContactInfo.state} {kindHeartServicesContactInfo.zipcode}
                         </p>
-                      </div>
+                      </address>
                     </div>
                   </CardContent>
                 </Card>

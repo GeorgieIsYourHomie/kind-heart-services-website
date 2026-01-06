@@ -4,7 +4,7 @@ import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-conta
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
+    <footer className="border-t bg-muted/30" role="contentinfo">
       <div className="px-4 md:px-16 py-14">
         <div className="flex flex-wrap md:grid md:grid-cols-3 gap-12">
           <div className="flex-2">
@@ -12,15 +12,15 @@ export function Footer() {
               Kind Heart Services
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Compassionate, personalized assisted living in a warm Minnesota
-              home.
+              Personalized family-run assisted living rooted in warmth, comfort
+              and genuine compassion for every resident.
             </p>
           </div>
 
-          <div className="flex-1">
+          <nav className="flex-1" aria-label="Footer navigation">
             <h3 className="text-sm font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2 text-sm">
-              <li>
+            <ul className="space-y-2 text-sm" role="list">
+              <li role="listitem">
                 <Link
                   href="/"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -28,7 +28,7 @@ export function Footer() {
                   Home
                 </Link>
               </li>
-              <li>
+              <li role="listitem">
                 <Link
                   href="/about"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -36,7 +36,7 @@ export function Footer() {
                   About Us
                 </Link>
               </li>
-              <li>
+              <li role="listitem">
                 <Link
                   href="/services"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -44,7 +44,7 @@ export function Footer() {
                   Services
                 </Link>
               </li>
-              <li>
+              <li role="listitem">
                 <Link
                   href="/#contact-section"
                   className="text-muted-foreground hover:text-primary transition-colors"
@@ -53,25 +53,48 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
 
-          <div className="flex-1">
+          <address
+            className="flex-1 not-italic"
+            aria-label="Contact information"
+          >
             <h3 className="text-sm font-semibold mb-4">Contact Info</h3>
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-start gap-2">
-                <Phone className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">
+            <ul className="space-y-3 text-sm" role="list">
+              <li className="flex items-start gap-2" role="listitem">
+                <Phone
+                  className="h-4 w-4 text-primary mt-0.5 shrink-0"
+                  aria-hidden="true"
+                />
+                <a
+                  href={`tel:${kindHeartServicesContactInfo.phone.replace(
+                    /\D/g,
+                    ""
+                  )}`}
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  aria-label={`Call us at ${kindHeartServicesContactInfo.phone}`}
+                >
                   {kindHeartServicesContactInfo.phone}
-                </span>
+                </a>
               </li>
-              <li className="flex items-start gap-2">
-                <Mail className="h-4 w-4 text-primary mt-0.5 shrink-0" />
-                <span className="text-muted-foreground">
+              <li className="flex items-start gap-2" role="listitem">
+                <Mail
+                  className="h-4 w-4 text-primary mt-0.5 shrink-0"
+                  aria-hidden="true"
+                />
+                <a
+                  href={`mailto:${kindHeartServicesContactInfo.email}`}
+                  className="text-muted-foreground hover:text-primary transition-colors break-all"
+                  aria-label={`Email us at ${kindHeartServicesContactInfo.email}`}
+                >
                   {kindHeartServicesContactInfo.email}
-                </span>
+                </a>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+              <li className="flex items-start gap-2" role="listitem">
+                <MapPin
+                  className="h-4 w-4 text-primary mt-0.5 shrink-0"
+                  aria-hidden="true"
+                />
                 <span className="text-muted-foreground">
                   {kindHeartServicesContactInfo.address} <br />
                   {kindHeartServicesContactInfo.city},{" "}
@@ -80,7 +103,7 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
+          </address>
         </div>
 
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">

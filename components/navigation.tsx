@@ -12,41 +12,57 @@ export function Navigation() {
   return (
     <header className="sticky top-0 z-50 w-full max-w-480 mx-auto border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className=" mx-auto px-4 md:px-16">
-        <nav className="flex h-16 items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
+        <nav 
+          className="flex h-16 items-center justify-between"
+          aria-label="Main navigation"
+        >
+          <Link 
+            href="/" 
+            className="flex items-center space-x-2"
+            aria-label="Kind Heart Services - Home"
+          >
             <span className="text-xl font-serif font-medium text-primary">
               Kind Heart Services
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-6" role="list">
             <Link
               href="/"
               className="text-sm font-medium hover:text-primary transition-colors"
+              role="listitem"
             >
               Home
             </Link>
             <Link
               href="/about"
               className="text-sm font-medium hover:text-primary transition-colors"
+              role="listitem"
             >
               About
             </Link>
             <Link
               href="/services"
               className="text-sm font-medium hover:text-primary transition-colors"
+              role="listitem"
             >
               Services
             </Link>
             <Link
               href="/#contact-section"
               className="text-sm font-medium hover:text-primary transition-colors"
+              role="listitem"
             >
               Contact
             </Link>
             <Button asChild size="sm" className="ml-2">
-              <Link href="/contact">Schedule a Tour</Link>
+              <Link 
+                href="/#contact-section"
+                aria-label="Schedule a tour of our assisted living facility"
+              >
+                Schedule a Tour
+              </Link>
             </Button>
             {/* <ModeToggle/> */}
           </div>
@@ -55,7 +71,9 @@ export function Navigation() {
           <button
             className="md:hidden p-2"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
+            aria-controls="mobile-menu"
           >
             {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -63,12 +81,18 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden border-t py-4">
+          <div 
+            id="mobile-menu"
+            className="md:hidden border-t py-4"
+            role="menu"
+            aria-label="Mobile navigation menu"
+          >
             <div className="flex flex-col gap-4">
               <Link
                 href="/"
                 className="text-sm font-medium hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
               >
                 Home
               </Link>
@@ -76,6 +100,7 @@ export function Navigation() {
                 href="/about"
                 className="text-sm font-medium hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
               >
                 About
               </Link>
@@ -83,6 +108,7 @@ export function Navigation() {
                 href="/services"
                 className="text-sm font-medium hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
               >
                 Services
               </Link>
@@ -90,11 +116,16 @@ export function Navigation() {
                 href="/#contact-section"
                 className="text-sm font-medium hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
+                role="menuitem"
               >
                 Contact
               </Link>
               <Button asChild className="w-full">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
+                <Link 
+                  href="/#contact-section" 
+                  onClick={() => setIsOpen(false)}
+                  aria-label="Schedule a tour of our assisted living facility"
+                >
                   Schedule a Tour
                 </Link>
               </Button>

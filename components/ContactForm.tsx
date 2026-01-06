@@ -41,30 +41,57 @@ export function ContactForm() {
       <CardHeader>
         <CardTitle className="text-2xl">Get in Touch</CardTitle>
         <CardDescription className="text-base">
-          Fill out the form below and we'll get back to you within 24 hours
+          Fill out the form below and we'll get back to you within 24 hours. 
+          We're here to answer your questions about assisted living in Minnesota.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form 
+          onSubmit={handleSubmit} 
+          className="space-y-6"
+          aria-label="Contact form"
+        >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
-              <Input id="firstName" name="firstName" required />
+              <Input 
+                id="firstName" 
+                name="firstName" 
+                required 
+                aria-required="true"
+              />
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName">Last Name</Label>
-              <Input id="lastName" name="lastName" required />
+              <Input 
+                id="lastName" 
+                name="lastName" 
+                required 
+                aria-required="true"
+              />
             </div>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" name="email" type="email" required />
+            <Input 
+              id="email" 
+              name="email" 
+              type="email" 
+              required 
+              aria-required="true"
+            />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="phone">Phone Number</Label>
-            <Input id="phone" name="phone" type="tel" required />
+            <Input 
+              id="phone" 
+              name="phone" 
+              type="tel" 
+              required 
+              aria-required="true"
+            />
           </div>
 
           <div className="space-y-2">
@@ -75,6 +102,7 @@ export function ContactForm() {
               rows={5}
               placeholder="Tell us about your needs and questions..."
               required
+              aria-required="true"
             />
           </div>
           <div className="flex justify-center">
@@ -82,6 +110,7 @@ export function ContactForm() {
               type="submit"
               className="w-full md:w-auto"
               disabled={isSubmitting}
+              aria-label={isSubmitting ? "Sending message" : "Submit contact form"}
             >
               {isSubmitting
                 ? "Sending..."
@@ -92,7 +121,11 @@ export function ContactForm() {
           </div>
 
           {isSuccess && (
-            <p className="text-sm text-center text-secondary font-medium">
+            <p 
+              className="text-sm text-center text-secondary font-medium"
+              role="status"
+              aria-live="polite"
+            >
               Thank you! We'll be in touch soon.
             </p>
           )}

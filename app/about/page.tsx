@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 const tabs = [
   {
@@ -12,17 +14,17 @@ const tabs = [
     label: "Our Story",
     title: "A Home Built on Love and Family Values",
     content:
-      "Our assisted living home was founded with a simple belief: that every senior deserves to live with dignity, warmth, and genuine care. Started by a family who experienced firsthand the challenge of finding compassionate, personalized care for a loved one, we created the kind of place we wished had existed—a true home, not an institution. Every day, we honor that commitment with consistency, respect, and unwavering dedication to the people we serve.",
+      "Kind Heart Services was founded to create a true home for seniors in Minnesota. As a family-run assisted living residence, we focus on personalized care, consistency, and meaningful relationships. Every resident is supported by caregivers who truly know and care for them.",
     image: "/images/pexels-jsme-mila-523821574-18459207.jpg",
     imageAlt:
-      "Caregiver having a warm conversation with a resident in a comfortable living space",
+      "Caregivers having a warm conversation with a resident in a comfortable living space",
   },
   {
     id: "mission",
     label: "Our Mission",
     title: "Care That Honors Independence and Wellbeing",
     content:
-      "Our mission is to provide daily care that balances safety with freedom, support with independence. We believe in treating each resident as an individual—honoring their preferences, their pace, and their dignity. From shared meals to quiet conversations, we focus on emotional wellbeing just as much as physical health. Our caregivers are not just staff; they are companions who listen, respect, and truly care.",
+      "Our mission is to To provide personalized assisted living care that supports comfort, connection, and peace of mind for residents and families.",
     image: "/images/pexels-jsme-mila-523821574-29372710.jpg",
     imageAlt: "Caregiver gently supporting a resident during a daily activity",
   },
@@ -31,7 +33,7 @@ const tabs = [
     label: "Our Vision",
     title: "A Future Where Aging is Peaceful and Dignified",
     content:
-      "We envision a community where aging is not something to fear, but a natural stage of life met with grace, comfort, and connection. Our long-term commitment is to continually elevate the quality of care—creating environments filled with natural light, calm moments, and meaningful relationships. We believe in aging with dignity, surrounded by people who see you, know you, and care deeply about your wellbeing.",
+      "Our vision is simple: To create a future where assisted living feels personal, peaceful, and truly supportive. A place where seniors can age gracefully, surrounded by care and kindness.",
     image: "/images/pexels-arthur-swiffen-172080999-14185266.jpg",
     imageAlt:
       "Residents enjoying a peaceful moment in a naturally lit common area",
@@ -47,55 +49,66 @@ export default function AboutPage() {
       <Navigation />
       <main className="min-h-dvh bg-[#FAF8F5]">
         {/* Intro Section */}
-        <section className="mx-auto max-w-3xl px-6 py-16 text-center md:py-24">
-          <div className="mb-6 inline-flex items-center rounded-full border border-[#D4C4B0] bg-white px-4 py-1.5">
-            <span className="font-serif text-sm text-[#6B5D4F]">
-              Who We Are
-            </span>
-          </div>
+        <section
+          className="mx-auto max-w-3xl px-6 py-16 text-center md:py-24"
+          aria-labelledby="about-intro-heading"
+        >
+          <h1
+            id="about-intro-heading"
+            className="text-foreground text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6"
+          >
+            <span>Who We </span>
+            <span className="italic">Are </span>
+          </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl font-serif text-lg leading-relaxed text-[#3D3630] md:text-xl">
-            We are a family-run assisted living home dedicated to providing
-            compassionate, personalized care in a warm, home-like environment.
-            Every resident is treated with dignity, respect, and genuine
-            kindness—because this is more than a residence. It's a home.
+          <p className="mx-auto mb-8 max-w-4xl text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
+            We are a family-run assisted living home in Minnesota dedicated to
+            providing compassionate, personalized care in a warm, home-like
+            setting. Every resident is treated with tenderness, respect, and
+            genuine kindness—because this is more than a residence. It's a home
+            where seniors can age with grace, surrounded by people who truly
+            care about their wellbeing and happiness.
           </p>
 
-          <Button
-            size="lg"
-            className="bg-[#8B7355] text-white hover:bg-[#6B5D4F]"
-          >
-            Schedule a Tour
+          <Button className="w-auto" asChild size="lg">
+            <Link
+              href="https://calendly.com/kindheartservicesllc/30min"
+              target="blank"
+              className="flex justify-center items-center"
+              aria-label="Schedule a tour of our Minnesota assisted living facility"
+            >
+              Arrange Your Visit
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+            </Link>
           </Button>
         </section>
 
         {/* Tab Navigation */}
-        <section className="mx-auto max-w-6xl px-6 pb-16">
-          <div
-            role="tablist"
-            aria-label="About us sections"
-            className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
-          >
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                role="tab"
-                aria-selected={activeTab === tab.id}
-                aria-controls={`panel-${tab.id}`}
-                id={`tab-${tab.id}`}
-                onClick={() => setActiveTab(tab.id)}
-                className={`relative pb-4 font-serif text-lg transition-colors ${
-                  activeTab === tab.id
-                    ? "text-[#8B7355]"
-                    : "text-[#6B5D4F] hover:text-[#8B7355]"
-                }`}
-              >
-                {tab.label}
-                {activeTab === tab.id && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#8B7355]" />
-                )}
-              </button>
-            ))}
+        <section className="w-full">
+          <div className="mx-auto max-w-6xl px-6 pb-16">
+            <div
+              role="tablist"
+              aria-label="About us sections"
+              className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  aria-controls={`panel-${tab.id}`}
+                  id={`tab-${tab.id}`}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
+                    activeTab === tab.id
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Tab Content */}
@@ -103,25 +116,23 @@ export default function AboutPage() {
             role="tabpanel"
             id={`panel-${currentTab.id}`}
             aria-labelledby={`tab-${currentTab.id}`}
-            className="grid gap-8 md:grid-cols-2 md:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-0"
           >
             {/* Image */}
-            <div className="h-[400] order-2 md:order-1 w-full overflow-hidden rounded-sm">
+            <div className="order-2 md:order-1 relative w-full h-86 sm:h-80 md:h-full overflow-hidden">
               <Image
-                width={600}
-                height={400}
                 src={currentTab.image || "/placeholder.svg"}
                 alt={currentTab.imageAlt}
-                className="h-full w-full rounded-2xl object-cover object-center"
+                fill
+                className="object-cover object-center"
+                priority
               />
             </div>
 
             {/* Text Content */}
-            <div className="order-1 flex flex-col justify-center md:order-2">
-              <h2 className="mb-4 font-serif text-3xl leading-tight text-[#3D3630] md:text-4xl">
-                {currentTab.title}
-              </h2>
-              <p className="mb-6 leading-relaxed text-[#5A4F43] md:text-lg">
+            <div className="order-1 md:order-2 flex flex-col justify-center px-4 md:px-16 py-8 md:py-14">
+              <h2 className="font-serif text-3xl mb-6">{currentTab.title}</h2>
+              <p className="mb-6 leading-relaxed text-muted-foreground md:text-lg">
                 {currentTab.content}
               </p>
             </div>

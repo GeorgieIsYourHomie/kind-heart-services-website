@@ -21,9 +21,14 @@ export default function ServicesPage() {
         {/* Header */}
         <div className="px-4 md:px-16 flex flex-col justify-center">
           <h1 className="text-4xl md:text-6xl text-balance font-serif leading-tight tracking-tight mb-6">
-            The services we offer for the best{" "}
+            Comprehensive assisted living services for the best{" "}
             <span className="italic">care.</span>
           </h1>
+          <p className="text-lg text-muted-foreground max-w-3xl mt-4">
+            At Kind Heart Services, we provide a full range of personalized
+            assisted living services designed to support independence, enhance
+            quality of life, and ensure peace of mind for families in Minnesota.
+          </p>
         </div>
         {/* Image */}
         <div className="px-4 md:px-16">
@@ -31,54 +36,70 @@ export default function ServicesPage() {
           <div className="h-96 w-full overflow-hidden rounded-sm relative">
             <Image
               src="/images/the-unmistakables-suNS4qGA1i0-unsplash.jpg"
-              alt="Warm assisted living environment"
+              alt="Residents receiving compassionate care in our Minnesota assisted living facility"
               fill
-              className="object-cover object-center"
+              className="object-cover object-center xl:object-[center_30%]"
               priority
             />
           </div>
         </div>
 
         {/* Services content */}
-        <div className="bg-primary grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-16 px-4 md:px-16 py-14 pb-16">
-          {serviceGroups.map((group) => {
-            return (
-              <div key={group.id} className="text-background flex flex-col gap-8 lg:gap-12">
-                {/* Service group title */}
-                <div className="flex flex-col gap-4">
-                  <h3 className="font-serif font-semibold">{group.title}</h3>
-                  <p className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight">
-                    {group.description}
-                  </p>
-                </div>
+        <section
+          className="bg-primary w-full"
+          aria-labelledby="services-heading"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-16 px-4 md:px-16 py-14 pb-16">
+            {serviceGroups.map((group) => {
+              return (
+                <article
+                  key={group.id}
+                  className="text-background flex flex-col gap-8 lg:gap-12"
+                >
+                  {/* Service group title */}
+                  <div className="flex flex-col gap-4">
+                    <h2 className="font-serif font-semibold">{group.title}</h2>
+                    <p className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight">
+                      {group.description}
+                    </p>
+                  </div>
 
-                {/* Service group services */}
-                <div className="flex flex-col gap-6 ">
-                  {group.services.map((service) => {
-                    const Icon = service.icon;
-                    return (
-                      <div key={service.slug} className="flex gap-4">
-                        <div className="shrink-0">
-                          <div className="w-12 h-12 rounded-sm bg-accent/20 flex items-center justify-center">
-                            <Icon className="w-6 h-6 text-accent" />
+                  {/* Service group services */}
+                  <div
+                    className="flex flex-col gap-6"
+                    role="list"
+                    aria-label={`${group.title} services`}
+                  >
+                    {group.services.map((service) => {
+                      const Icon = service.icon;
+                      return (
+                        <div
+                          key={service.slug}
+                          className="flex gap-4"
+                          role="listitem"
+                        >
+                          <div className="shrink-0" aria-hidden="true">
+                            <div className="w-12 h-12 rounded-sm bg-accent/20 flex items-center justify-center">
+                              <Icon className="w-6 h-6 text-accent" />
+                            </div>
+                          </div>
+                          <div>
+                            <h3 className="font-medium text-md mb-2">
+                              {service.serviceSnapshotTitle}
+                            </h3>
+                            <p className="text-background/90 text-base leading-relaxed">
+                              {service.serviceSnapshotDescription}
+                            </p>
                           </div>
                         </div>
-                        <div>
-                          <h4 className="font-medium text-md mb-2">
-                            {service.serviceSnapshotTitle}
-                          </h4>
-                          <p className="text-background/90 text-base leading-relaxed">
-                            {service.serviceSnapshotDescription}
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+                      );
+                    })}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
       </div>
     </main>
   );
