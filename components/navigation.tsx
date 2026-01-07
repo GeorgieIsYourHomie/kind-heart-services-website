@@ -1,23 +1,25 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { Menu, X } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { ModeToggle } from "./ModeToggle"
+import Link from "next/link";
+import { useState } from "react";
+import { ArrowRight, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { CustomButton } from "@/components/CustomButton";
+
+import { ModeToggle } from "./ModeToggle";
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 w-full max-w-480 mx-auto border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className=" mx-auto px-4 md:px-16">
-        <nav 
+        <nav
           className="flex h-16 items-center justify-between"
           aria-label="Main navigation"
         >
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center space-x-2"
             aria-label="Kind Heart Services - Home"
           >
@@ -56,14 +58,15 @@ export function Navigation() {
             >
               Contact
             </Link>
-            <Button asChild size="sm" className="ml-2">
-              <Link 
-                href="/#contact-section"
-                aria-label="Schedule a tour of our assisted living facility"
-              >
-                Schedule a Tour
-              </Link>
-            </Button>
+            <CustomButton
+              text="Schedule a Tour"
+              href="https://calendly.com/kindheartservicesllc/30min"
+              icon={ArrowRight}
+              iconPosition="right"
+              size="sm"
+              className="ml-2"
+              ariaLabel="Schedule a tour of our assisted living facility"
+            />
             {/* <ModeToggle/> */}
           </div>
 
@@ -81,7 +84,7 @@ export function Navigation() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div 
+          <div
             id="mobile-menu"
             className="md:hidden border-t py-4"
             role="menu"
@@ -120,15 +123,16 @@ export function Navigation() {
               >
                 Contact
               </Link>
-              <Button asChild className="w-full">
-                <Link 
-                  href="/#contact-section" 
-                  onClick={() => setIsOpen(false)}
-                  aria-label="Schedule a tour of our assisted living facility"
-                >
-                  Schedule a Tour
-                </Link>
-              </Button>
+              <CustomButton
+                text="Schedule a Tour"
+                href="https://calendly.com/kindheartservicesllc/30min"
+                icon={ArrowRight}
+                iconPosition="right"
+                target="blank"
+                className="w-full"
+                ariaLabel="Schedule a tour of our assisted living facility"
+                onClick={() => setIsOpen(false)}
+              />
             </div>
           </div>
         )}

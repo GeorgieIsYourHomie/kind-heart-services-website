@@ -7,6 +7,8 @@ import { Footer } from "@/components/Footer";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { CustomButton } from "@/components/CustomButton";
+
 
 const tabs = [
   {
@@ -70,45 +72,42 @@ export default function AboutPage() {
             care about their wellbeing and happiness.
           </p>
 
-          <Button className="w-auto" asChild size="lg">
-            <Link
-              href="https://calendly.com/kindheartservicesllc/30min"
-              target="blank"
-              className="flex justify-center items-center"
-              aria-label="Schedule a tour of our Minnesota assisted living facility"
-            >
-              Arrange Your Visit
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-            </Link>
-          </Button>
+          <CustomButton
+            text="Arrange Your Visit"
+            href="https://calendly.com/kindheartservicesllc/30min"
+            icon={ArrowRight}
+            iconPosition="right"
+            size="lg"
+            className="w-auto"
+            target="blank"
+            ariaLabel="Schedule a tour of our Minnesota assisted living facility"
+          />
         </section>
 
         {/* Tab Navigation */}
-        <section className="w-full">
-          <div className="mx-auto max-w-6xl px-6 pb-16">
-            <div
-              role="tablist"
-              aria-label="About us sections"
-              className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
-            >
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  role="tab"
-                  aria-selected={activeTab === tab.id}
-                  aria-controls={`panel-${tab.id}`}
-                  id={`tab-${tab.id}`}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
-                    activeTab === tab.id
-                      ? "text-foreground font-medium"
-                      : "text-muted-foreground hover:text-foreground"
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
+        <section className="mx-auto max-w-6xl px-6 pb-16">
+          <div
+            role="tablist"
+            aria-label="About us sections"
+            className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                role="tab"
+                aria-selected={activeTab === tab.id}
+                aria-controls={`panel-${tab.id}`}
+                id={`tab-${tab.id}`}
+                onClick={() => setActiveTab(tab.id)}
+                className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
+                  activeTab === tab.id
+                    ? "text-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
           </div>
 
           {/* Tab Content */}
@@ -116,21 +115,21 @@ export default function AboutPage() {
             role="tabpanel"
             id={`panel-${currentTab.id}`}
             aria-labelledby={`tab-${currentTab.id}`}
-            className="grid grid-cols-1 md:grid-cols-2 gap-0"
+            className="grid gap-8 md:grid-cols-2 md:gap-12"
           >
             {/* Image */}
-            <div className="order-2 md:order-1 relative w-full h-86 sm:h-80 md:h-full overflow-hidden">
+            <div className="h-[400] order-2 md:order-1 w-full overflow-hidden rounded-sm">
               <Image
+                width={600}
+                height={400}
                 src={currentTab.image || "/placeholder.svg"}
                 alt={currentTab.imageAlt}
-                fill
-                className="object-cover object-center"
-                priority
+                className="h-full w-full rounded-2xl object-cover object-center"
               />
             </div>
 
             {/* Text Content */}
-            <div className="order-1 md:order-2 flex flex-col justify-center px-4 md:px-16 py-8 md:py-14">
+            <div className="order-1 flex flex-col justify-center md:order-2">
               <h2 className="font-serif text-3xl mb-6">{currentTab.title}</h2>
               <p className="mb-6 leading-relaxed text-muted-foreground md:text-lg">
                 {currentTab.content}

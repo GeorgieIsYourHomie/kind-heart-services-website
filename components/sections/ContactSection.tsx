@@ -2,16 +2,19 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ContactForm";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { CustomButton } from "@/components/CustomButton";
+
+import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-contact-info";
 import GoogleMaps from "../GoogleMaps";
 import Image from "next/image";
+import { Arrow } from "@radix-ui/react-dropdown-menu";
 
 export default function ContactSection() {
   return (
     <section
       id="contact-section"
-      className="bg-primary scroll-mt-20 w-full"
+      className="bg-primary scroll-mt-20"
       aria-labelledby="contact-heading"
     >
       {/* Section Container */}
@@ -29,54 +32,55 @@ export default function ContactSection() {
             />
           </div>
         </div>
-        <div className="max-w-4xl mx-auto px-4 md:px-16 text-center">
-          <div className="text-background">
-            <h2
-              id="contact-heading"
-              className="text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6"
-            >
-              <span>Ready to Learn </span>
-              <span className="italic">More?</span>
-            </h2>
-            <p className="text-lg mb-12 leading-relaxed text-pretty">
-              We're here to answer your questions and help you find the right
-              care solution for your loved one. Schedule a tour to visit our
-              Minnesota assisted living facility in person and see how we create
-              a warm, home-like environment for our residents.
-            </p>
-          </div>
+        <div className="max-w-4xl mx-auto px-4 md:px-16 text-center w-full">
+          <h2
+            id="contact-heading"
+            className="text-background text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6"
+          >
+            <span>Ready to Learn </span>
+            <span className="italic">More?</span>
+          </h2>
+          <p className="text-background text-lg mb-12 leading-relaxed text-pretty">
+            We're here to answer your questions and help you find the right care
+            solution for your loved one. Schedule a tour to visit our Minnesota
+            assisted living facility in person and see how we create a warm,
+            home-like environment for our residents.
+          </p>
+
           {/* Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
-            <Button
-              className="flex-1 bg-accent/10 hover:bg-accent/20 transition-colors text-background hover:text-background"
+          <div className="flex flex-wrap justify-center gap-4 mb-8 w-full">
+            <CustomButton
+              text="Plan Your Visit"
+              href="https://calendly.com/kindheartservicesllc/30min"
+              icon={ArrowRight}
+              iconPosition="right"
               variant="outline"
-              asChild
               size="lg"
-            >
-              <Link
-                target="blank"
-                href="https://calendly.com/kindheartservicesllc/30min"
-                aria-label="Schedule a tour of our assisted living facility"
-              >
-                Schedule a Tour
-              </Link>
-            </Button>
+              className="flex-1 min-w-0 bg-accent/10 hover:bg-accent/20 transition-colors text-background hover:text-background"
+              target="blank"
+              ariaLabel="Schedule a tour of our assisted living facility"
+            />
             <div className="flex flex-row gap-4 w-full">
-              <Button className="flex-1" asChild size="lg" variant="outline">
-                <a href="tel:6124053679" aria-label="Call us at 612-405-3679">
-                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
-                  (612) 405-3679
-                </a>
-              </Button>
-              <Button className="flex-1" asChild size="lg" variant="outline">
-                <a
-                  href="mailto:kindheartservicesllc@gmail.com"
-                  aria-label="Email us at kindheartservicesllc@gmail.com"
-                >
-                  <Mail className="mr-2 h-5 w-5" aria-hidden="true" />
-                  Email Us
-                </a>
-              </Button>
+              <CustomButton
+                text="Call Us"
+                href="tel:6124053679"
+                icon={Phone}
+                iconPosition="left"
+                size="lg"
+                variant="outline"
+                className="flex-1"
+                ariaLabel="Call us at 612-405-3679"
+              />
+              <CustomButton
+                text="Email Us"
+                href="mailto:kindheartservicesllc@gmail.com"
+                icon={Mail}
+                iconPosition="left"
+                size="lg"
+                variant="outline"
+                className="flex-1"
+                ariaLabel="Email us at kindheartservicesllc@gmail.com"
+              />
             </div>
           </div>
         </div>

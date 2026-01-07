@@ -25,8 +25,7 @@ export default function HomePage() {
         <AmenitiesSection />
         <HealthSafetySection />
         <TestimonialsSection />
-        <ContactSection/>
-
+        <ContactSection />
       </main>
 
       <Footer />

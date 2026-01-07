@@ -14,6 +14,7 @@ import {
   CardTitle,
   CardDescription,
 } from "@/components/ui/card";
+import { CustomButton } from "@/components/CustomButton";
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -41,32 +42,33 @@ export function ContactForm() {
       <CardHeader>
         <CardTitle className="text-2xl">Get in Touch</CardTitle>
         <CardDescription className="text-base">
-          Fill out the form below and we'll get back to you within 24 hours. 
-          We're here to answer your questions about assisted living in Minnesota.
+          Fill out the form below and we'll get back to you within 24 hours.
+          We're here to answer your questions about assisted living in
+          Minnesota.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form 
-          onSubmit={handleSubmit} 
+        <form
+          onSubmit={handleSubmit}
           className="space-y-6"
           aria-label="Contact form"
         >
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
-              <Input 
-                id="firstName" 
-                name="firstName" 
-                required 
+              <Input
+                id="firstName"
+                name="firstName"
+                required
                 aria-required="true"
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="lastName">Last Name</Label>
-              <Input 
-                id="lastName" 
-                name="lastName" 
-                required 
+              <Input
+                id="lastName"
+                name="lastName"
+                required
                 aria-required="true"
               />
             </div>
@@ -74,22 +76,22 @@ export function ContactForm() {
 
           <div className="space-y-2">
             <Label htmlFor="email">Email</Label>
-            <Input 
-              id="email" 
-              name="email" 
-              type="email" 
-              required 
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              required
               aria-required="true"
             />
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="phone">Phone Number</Label>
-            <Input 
-              id="phone" 
-              name="phone" 
-              type="tel" 
-              required 
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              required
               aria-required="true"
             />
           </div>
@@ -106,22 +108,25 @@ export function ContactForm() {
             />
           </div>
           <div className="flex justify-center">
-            <Button
+            <CustomButton
               type="submit"
+              text={
+                isSubmitting
+                  ? "Sending..."
+                  : isSuccess
+                  ? "Message Sent!"
+                  : "Send Message"
+              }
               className="w-full md:w-auto"
               disabled={isSubmitting}
-              aria-label={isSubmitting ? "Sending message" : "Submit contact form"}
-            >
-              {isSubmitting
-                ? "Sending..."
-                : isSuccess
-                ? "Message Sent!"
-                : "Send Message"}
-            </Button>
+              ariaLabel={
+                isSubmitting ? "Sending message" : "Submit contact form"
+              }
+            />
           </div>
 
           {isSuccess && (
-            <p 
+            <p
               className="text-sm text-center text-secondary font-medium"
               role="status"
               aria-live="polite"

@@ -5,6 +5,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
 
+
 const fontSerif = Lora({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],

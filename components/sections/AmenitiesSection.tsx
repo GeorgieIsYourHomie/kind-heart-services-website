@@ -82,7 +82,7 @@ export function AmenitiesSection() {
               >
                 <amenity.icon className="h-6 w-6 text-primary" />
               </div>
-              <span className="text-sm text-left font-medium">
+              <span className="text-sm text-center font-medium">
                 {amenity.label}
               </span>
             </div>
