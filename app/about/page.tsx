@@ -9,7 +9,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CustomButton } from "@/components/CustomButton";
 
-
 const tabs = [
   {
     id: "story",
@@ -49,10 +48,10 @@ export default function AboutPage() {
   return (
     <>
       <Navigation />
-      <main className="min-h-dvh bg-[#FAF8F5]">
+      <main className="bg-background scroll-mt-20">
         {/* Intro Section */}
         <section
-          className="mx-auto max-w-3xl px-6 py-16 text-center md:py-24"
+          className="xl:hidden mx-auto max-w-3xl px-6 py-16 text-center md:py-24"
           aria-labelledby="about-intro-heading"
         >
           <h1
@@ -63,51 +62,40 @@ export default function AboutPage() {
             <span className="italic">Are </span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-4xl text-lg md:text-xl text-muted-foreground leading-relaxed text-pretty">
+          <p className="mx-auto mb-8 max-w-4xl text-lg md:text-xl text-muted-foreground leading-relaxed text-balance">
             We are a family-run assisted living home in Minnesota dedicated to
             providing compassionate, personalized care in a warm, home-like
-            setting. Every resident is treated with tenderness, respect, and
-            genuine kindness—because this is more than a residence. It's a home
-            where seniors can age with grace, surrounded by people who truly
-            care about their wellbeing and happiness.
+            setting.
           </p>
-
-          <CustomButton
-            text="Arrange Your Visit"
-            href="https://calendly.com/kindheartservicesllc/30min"
-            icon={ArrowRight}
-            iconPosition="right"
-            size="lg"
-            className="w-auto"
-            target="blank"
-            ariaLabel="Schedule a tour of our Minnesota assisted living facility"
-          />
         </section>
 
         {/* Tab Navigation */}
-        <section className="mx-auto max-w-6xl px-6 pb-16">
-          <div
-            role="tablist"
-            aria-label="About us sections"
-            className="mb-12 flex justify-center gap-8 border-b border-[#E8DED0]"
-          >
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                role="tab"
-                aria-selected={activeTab === tab.id}
-                aria-controls={`panel-${tab.id}`}
-                id={`tab-${tab.id}`}
-                onClick={() => setActiveTab(tab.id)}
-                className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
-                  activeTab === tab.id
-                    ? "text-foreground font-medium"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        <section className="w-full">
+          {/* Mobile: Tabs above everything */}
+          <div className="md:hidden mx-auto max-w-6xl px-6">
+            <div
+              role="tablist"
+              aria-label="About us sections"
+              className="mb-12 flex justify-center gap-8 border-b border-foreground/10"
+            >
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  role="tab"
+                  aria-selected={activeTab === tab.id}
+                  aria-controls={`panel-${tab.id}`}
+                  id={`tab-${tab.id}`}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
+                    activeTab === tab.id
+                      ? "text-foreground font-medium"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Tab Content */}
@@ -115,25 +103,74 @@ export default function AboutPage() {
             role="tabpanel"
             id={`panel-${currentTab.id}`}
             aria-labelledby={`tab-${currentTab.id}`}
-            className="grid gap-8 md:grid-cols-2 md:gap-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-0"
           >
             {/* Image */}
-            <div className="h-[400] order-2 md:order-1 w-full overflow-hidden rounded-sm">
+            <div className="order-2 md:order-1 relative w-full h-100 md:h-[600] xl:h-[700] md:w-full overflow-hidden">
               <Image
-                width={600}
-                height={400}
                 src={currentTab.image || "/placeholder.svg"}
                 alt={currentTab.imageAlt}
-                className="h-full w-full rounded-2xl object-cover object-center"
+                fill
+                className="object-cover object-center md:object-right lg:object-center"
+                priority
               />
             </div>
 
             {/* Text Content */}
-            <div className="order-1 flex flex-col justify-center md:order-2">
-              <h2 className="font-serif text-3xl mb-6">{currentTab.title}</h2>
-              <p className="mb-6 leading-relaxed text-muted-foreground md:text-lg">
-                {currentTab.content}
-              </p>
+            <div className="order-1 md:order-2 flex flex-col px-4 md:px-16">
+              {/* Intro Section */}
+              <header
+                className="hidden xl:block mx-auto max-w-3xl py-16"
+                aria-labelledby="about-intro-heading"
+              >
+                <h1
+                  id="about-intro-heading"
+                  className="max-w-3xl text-4xl md:text-6xl font-serif leading-tight mb-6"
+                >
+                  <span>Who We </span>
+                  <span className="italic">Are </span>
+                </h1>
+
+                <p className="mx-auto mb-8 max-w-4xl text-lg md:text-xl text-muted-foreground leading-relaxed text-balance">
+                  We are a family-run assisted living home in Minnesota
+                  dedicated to providing compassionate, personalized care in a
+                  warm, home-like setting.
+                </p>
+              </header>
+              {/* Desktop: Tabs above text content */}
+              <div className="hidden md:block mx-auto max-w-6xl w-full pb-8">
+                  <div className="mb-8">
+                    <div
+                      role="tablist"
+                      aria-label="About us sections"
+                      className="flex xl:justify-start gap-8 border-b border-[#E8DED0] pb-4"
+                    >
+                      {tabs.map((tab) => (
+                        <button
+                          key={tab.id}
+                          role="tab"
+                          aria-selected={activeTab === tab.id}
+                          aria-controls={`panel-${tab.id}`}
+                          id={`tab-desktop-${tab.id}`}
+                          onClick={() => setActiveTab(tab.id)}
+                          className={`leading-6 cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
+                            activeTab === tab.id
+                              ? "text-foreground font-medium"
+                              : "text-muted-foreground hover:text-foreground"
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <h2 className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight mb-6">
+                    {currentTab.title}
+                  </h2>
+                  <p className="mb-6 leading-relaxed text-muted-foreground md:text-md">
+                    {currentTab.content}
+                  </p>
+                  </div>
             </div>
           </div>
         </section>

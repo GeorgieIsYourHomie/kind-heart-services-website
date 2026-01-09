@@ -5,7 +5,6 @@
 
 html {
   scroll-behavior: smooth;
-  
 }
 
 :root {
@@ -74,7 +73,7 @@ html {
 
 @theme inline {
   --font-serif: "Lora", Georgia, serif;
-  --font-sans: "Work Sans", system-ui, -apple-system, BlinkMacSystemFont,
+  --font-sans: "Work Sans", BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto,
     sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);

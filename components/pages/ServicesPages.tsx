@@ -18,7 +18,7 @@ export default function ServicesPage() {
           </p>
         </div>
         {/* Image */}
-        <div className="px-4 md:px-16">
+        <div className="px-4 md:px-16 pb-16">
           {/* Image container */}
           <div className="h-96 w-full overflow-hidden rounded-sm relative">
             <Image

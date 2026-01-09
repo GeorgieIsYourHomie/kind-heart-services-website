@@ -16,6 +16,7 @@ export type CustomButtonProps = {
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
   disabled?: boolean;
+  widthAuto?: boolean; // If true, uses w-auto on large screens
 };
 
 export function CustomButton({
@@ -31,6 +32,7 @@ export function CustomButton({
   onClick,
   type = "button",
   disabled,
+  widthAuto = false,
 }: CustomButtonProps) {
   const iconElement = Icon ? (
     <Icon
@@ -50,7 +52,11 @@ export function CustomButton({
     </>
   );
 
-  const buttonClasses = cn("flex justify-center items-center", className);
+  const buttonClasses = cn(
+    "flex justify-center items-center",
+    widthAuto && "lg:w-auto",
+    className
+  );
 
   if (href) {
     return (
