@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useState } from "react";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { CustomButton } from "@/components/CustomButton";
 
 import { ModeToggle } from "./ModeToggle";
