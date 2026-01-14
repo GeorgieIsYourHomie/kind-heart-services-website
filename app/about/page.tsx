@@ -5,25 +5,31 @@ import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
-import { aboutTabs } from "@/lib/data/about";
+import { CustomImage } from "@/components/CustomImage";
+import { aboutTabs } from "@/lib/content/about";
 
 export default function AboutPage() {
+  // 1. tab state
   const [activeTab, setActiveTab] = useState("story");
+
+  // 2. derived current tab
   const currentTab =
     aboutTabs.find((aboutTab) => aboutTab.id === activeTab) || aboutTabs[0];
 
-  // preload all tab images
+  // 3. preload all tab images (prevents visible lag on switch)
   useEffect(() => {
     aboutTabs.forEach((aboutTab) => {
       const img = new window.Image();
       img.src = aboutTab.image;
     });
   }, []);
+
   return (
     <>
       <Navigation />
+
       <main className="bg-background scroll-mt-20">
-        {/* Intro Section */}
+        {/* ───────────── INTRO (mobile) ───────────── */}
         <section
           className="xl:hidden mx-auto max-w-3xl px-6 py-16 text-center md:py-24"
           aria-labelledby="about-intro-heading"
@@ -43,9 +49,9 @@ export default function AboutPage() {
           </p>
         </section>
 
-        {/* Tab Navigation */}
-        <section className="w-full">
-          {/* Mobile: Tabs above everything */}
+        {/* ───────────── TABS + CONTENT ───────────── */}
+        <section className="w-full" aria-label="About sections">
+          {/* Mobile: tabs above content */}
           <div className="md:hidden mx-auto max-w-6xl px-6">
             <div
               role="tablist"
@@ -55,6 +61,7 @@ export default function AboutPage() {
               {aboutTabs.map((aboutTab) => (
                 <button
                   key={aboutTab.id}
+                  type="button"
                   role="tab"
                   aria-selected={activeTab === aboutTab.id}
                   aria-controls={`panel-${aboutTab.id}`}
@@ -72,33 +79,35 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Tab Content */}
+          {/* Content panel */}
           <div
             role="tabpanel"
             id={`panel-${currentTab.id}`}
             aria-labelledby={`tab-${currentTab.id}`}
             className="grid grid-cols-1 md:grid-cols-2 gap-0"
           >
-            {/* Image */}
-            <div className="order-2 md:order-1 relative w-full h-100 md:h-[600] xl:h-[700] md:w-full overflow-hidden">
-              <Image
+            {/* ───────────── IMAGE ───────────── */}
+            <div className="order-2 md:order-1 w-full">
+              <CustomImage
                 src={currentTab.image || "/placeholder.svg"}
                 alt={currentTab.imageAlt}
-                fill
-                className="object-cover object-center md:object-right lg:object-center"
+                title={currentTab.label}
                 priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                wrapperClassName="w-full h-[420px] md:h-[600px] xl:h-[700px] overflow-hidden"
+                imageClassName="object-cover object-center md:object-right lg:object-center"
               />
             </div>
 
-            {/* Text Content */}
+            {/* ───────────── TEXT ───────────── */}
             <div className="order-1 md:order-2 flex flex-col px-4 md:px-16">
-              {/* Intro Section */}
+              {/* Desktop intro */}
               <header
                 className="hidden xl:block mx-auto max-w-3xl py-16"
-                aria-labelledby="about-intro-heading"
+                aria-labelledby="about-intro-heading-desktop"
               >
                 <h1
-                  id="about-intro-heading"
+                  id="about-intro-heading-desktop"
                   className="max-w-3xl text-4xl md:text-6xl font-serif leading-tight mb-6"
                 >
                   <span>Who We </span>
@@ -111,7 +120,8 @@ export default function AboutPage() {
                   warm, home-like setting.
                 </p>
               </header>
-              {/* Desktop: Tabs above text content */}
+
+              {/* Desktop: tabs above text content */}
               <div className="hidden md:block mx-auto max-w-6xl w-full pb-8">
                 <div className="mb-8">
                   <div
@@ -122,10 +132,11 @@ export default function AboutPage() {
                     {aboutTabs.map((aboutTab) => (
                       <button
                         key={aboutTab.id}
-                        role="about tab"
+                        type="button"
+                        role="tab"
                         aria-selected={activeTab === aboutTab.id}
                         aria-controls={`panel-${aboutTab.id}`}
-                        id={`tab-desktop-${aboutTab.id}`}
+                        id={`tab-${aboutTab.id}`}
                         onClick={() => setActiveTab(aboutTab.id)}
                         className={`leading-6 cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
                           activeTab === aboutTab.id
@@ -138,9 +149,11 @@ export default function AboutPage() {
                     ))}
                   </div>
                 </div>
+
                 <h2 className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight mb-6">
                   {currentTab.title}
                 </h2>
+
                 <p className="mb-6 leading-relaxed text-muted-foreground md:text-md">
                   {currentTab.content}
                 </p>
@@ -149,6 +162,7 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );
