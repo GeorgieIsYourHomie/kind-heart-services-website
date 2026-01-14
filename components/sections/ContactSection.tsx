@@ -1,14 +1,9 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/ContactForm";
-import { Card, CardContent } from "@/components/ui/card";
 import { CustomButton } from "@/components/CustomButton";
-
 import { Phone, Mail, MapPin, Clock, ArrowRight } from "lucide-react";
 import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-contact-info";
 import GoogleMaps from "../GoogleMaps";
-import Image from "next/image";
-import { Arrow } from "@radix-ui/react-dropdown-menu";
+import { CustomImage } from "../CustomImage";
 
 export default function ContactSection() {
   return (
@@ -19,20 +14,8 @@ export default function ContactSection() {
     >
       {/* Section Container */}
       <div className="flex flex-col items-stretch gap-12">
-        {/* Section Header */}
-        {/* Image */}
-        <div className="col-span-1 mb-6">
-          <div className="relative w-full h-86 sm:h-80 md:h-full overflow-hidden">
-            <Image
-              src="/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg"
-              alt="Welcoming entrance to our Minnesota assisted living facility"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </div>
-        <div className="max-w-4xl mx-auto px-4 md:px-16 text-center w-full">
+        {/* ───────────── HEADER ───────────── */}
+        <div className="max-w-4xl mx-auto px-4 md:px-16 text-center w-full pt-14">
           <h2
             id="contact-heading"
             className="text-background text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6"
@@ -40,6 +23,7 @@ export default function ContactSection() {
             <span>Ready to Learn </span>
             <span className="italic">More?</span>
           </h2>
+
           <p className="text-background text-lg mb-12 leading-relaxed text-pretty">
             We're here to answer your questions and help you find the right care
             solution for your loved one. Schedule a tour to visit our Minnesota
@@ -60,6 +44,7 @@ export default function ContactSection() {
               target="blank"
               ariaLabel="Schedule a tour of our assisted living facility"
             />
+
             <div className="flex flex-row gap-4 w-full">
               <CustomButton
                 text="Call Us"
@@ -71,6 +56,7 @@ export default function ContactSection() {
                 className="flex-1"
                 ariaLabel="Call us at 612-405-3679"
               />
+
               <CustomButton
                 text="Email Us"
                 href="mailto:kindheartservicesllc@gmail.com"
@@ -84,7 +70,8 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-        {/* Contact Info */}
+
+        {/* ───────────── CONTACT INFO ───────────── */}
         <div
           className="px-4 md:px-16 text-background max-w-full flex flex-wrap justify-center items-start gap-6 md:gap-10"
           role="list"
@@ -101,6 +88,7 @@ export default function ContactSection() {
             >
               <MapPin className="h-6 w-6 text-accent" />
             </div>
+
             <div className="text-center md:text-left">
               <h3 className="font-semibold mb-1">Location</h3>
               <p>
@@ -123,6 +111,7 @@ export default function ContactSection() {
             >
               <Clock className="h-6 w-6 text-accent" />
             </div>
+
             <div className="text-center md:text-left">
               <h3 className="font-semibold mb-1">Tour Hours</h3>
               <p>
@@ -135,27 +124,28 @@ export default function ContactSection() {
             </div>
           </div>
         </div>
-        {/* Image and Contact Form */}
+
+        {/* ───────────── IMAGE + FORM (mobile stacks / desktop side-by-side) ───────────── */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2">
           {/* Image */}
-          <div className="hidden md:block col-span-1 md:pl-16">
-            <div className="shadow-xl relative w-full h-86 sm:h-80 md:h-full overflow-hidden rounded-tl-sm rounded-bl-sm">
-              <Image
-                src="/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg"
-                alt="Comfortable living space in our Minnesota assisted living home"
-                fill
-                className="object-cover object-center md:object-right"
-                priority
-              />
-            </div>
+          <div className="col-span-1 md:pl-16">
+            <CustomImage
+              src="/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg"
+              alt="Welcoming entrance to our Minnesota assisted living facility"
+              priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              wrapperClassName="shadow-xl w-full h-86 sm:h-80 md:h-full rounded-tl-none md:rounded-bl-none md:rounded-tl-sm md:rounded-bl-sm mb-10"
+              imageClassName="object-cover object-center md:object-right"
+            />
           </div>
-          {/* Section Contact Form */}
+
+          {/* Contact Form */}
           <div className="col-span-1 px-4 md:pr-16 md:px-0">
             <ContactForm />
           </div>
         </div>
 
-        {/* Google Map */}
+        {/* ───────────── GOOGLE MAP ───────────── */}
         <GoogleMaps />
       </div>
     </section>
