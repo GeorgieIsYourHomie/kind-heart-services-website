@@ -1,5 +1,6 @@
 import { BookOpen, Palmtree, Music, Flower } from "lucide-react";
-import Image from "next/image";
+import { CustomImage } from "../CustomImage";
+import { siteImages } from "@/lib/content/images";
 
 const amenities = [
   { icon: BookOpen, label: "Reading Library" },
@@ -15,17 +16,19 @@ export function AmenitiesSection() {
       aria-labelledby="amenities-heading"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
-        {/* Images */}
-        <div className="col-span-2 md:col-span-1 relative w-full h-70 md:h-90 overflow-hidden rounded-sm">
-          <Image
-            src="/images/pexels-rdne-6148866.jpg"
+        {/* ───────────── IMAGE ───────────── */}
+        <div className="col-span-2 md:col-span-1">
+          <CustomImage
+            src={siteImages.home.amenities}
             alt="Residents enjoying activities in a comfortable common area at our Minnesota assisted living facility"
-            fill
-            className="object-cover object-top md:object-right lg:object-top"
             priority
+            sizes="(max-width: 768px) 100vw, 50vw"
+            wrapperClassName="w-full h-[280px] md:h-[360px] overflow-hidden rounded-sm"
+            imageClassName="object-cover object-top md:object-right lg:object-top"
           />
         </div>
-        {/* Content */}
+
+        {/* ───────────── CONTENT ───────────── */}
         <div className="col-span-1 max-w-full mx-auto">
           <h2
             id="amenities-heading"
@@ -34,6 +37,7 @@ export function AmenitiesSection() {
             <span>Amenities & </span>
             <span className="italic">Activities</span>
           </h2>
+
           <p className="text-lg text-muted-foreground mb-12 leading-relaxed text-pretty">
             Our home offers a warm, welcoming environment with meaningful
             opportunities to stay engaged and connected. From quiet reading time
@@ -41,6 +45,7 @@ export function AmenitiesSection() {
             residents are encouraged to participate at their own pace in ways
             that feel enjoyable and familiar.
           </p>
+
           <div
             className="hidden lg:grid grid-cols-4 gap-6"
             role="list"
@@ -65,6 +70,8 @@ export function AmenitiesSection() {
             ))}
           </div>
         </div>
+
+        {/* ───────────── MOBILE AMENITIES GRID ───────────── */}
         <div
           className="col-span-2 lg:hidden grid grid-cols-2 md:grid-cols-4 gap-6"
           role="list"
