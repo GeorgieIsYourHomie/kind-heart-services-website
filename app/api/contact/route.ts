@@ -42,8 +42,10 @@ export async function POST(request: NextRequest) {
     }
 
     // compose email content
-    const subject = "Kind Heart Services Website Form Submission";
+    const subject = "Kind Heart Services Website New Form Submission";
     const text = `
+      NO REPLY
+
       New contact form submission from Kind Heart Services website sent at ${new Date().toISOString()}.
 
       Name: ${firstName} ${lastName}
@@ -54,13 +56,13 @@ export async function POST(request: NextRequest) {
       ${message}
       `.trim();
 
-      // send email via Resend
+    // send email via Resend
     const result = await resend.emails.send({
       from: "Kind Heart Services <contact@kindheartservicesllc.com>",
       to: "kindheartservicesllc@gmail.com",
-      subject: "New Contact Form Submission",
+      subject: subject,
       replyTo: email,
-      text: `Name: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`,
+      text: text,
     });
 
     // if Resend returns an error
