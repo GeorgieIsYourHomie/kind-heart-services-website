@@ -1,50 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { CustomButton } from "@/components/CustomButton";
-
-const tabs = [
-  {
-    id: "story",
-    label: "Our Story",
-    title: "A Home Built on Love and Family Values",
-    content:
-      "Kind Heart Services was founded to create a true home for seniors in Minnesota. As a family-run assisted living residence, we focus on personalized care, consistency, and meaningful relationships. Every resident is supported by caregivers who truly know and care for them.",
-    image: "/images/pexels-jsme-mila-523821574-18459207.jpg",
-    imageAlt:
-      "Caregivers having a warm conversation with a resident in a comfortable living space",
-  },
-  {
-    id: "mission",
-    label: "Our Mission",
-    title: "Care That Honors Independence and Wellbeing",
-    content:
-      "Our mission is to To provide personalized assisted living care that supports comfort, connection, and peace of mind for residents and families.",
-    image: "/images/pexels-jsme-mila-523821574-29372710.jpg",
-    imageAlt: "Caregiver gently supporting a resident during a daily activity",
-  },
-  {
-    id: "vision",
-    label: "Our Vision",
-    title: "A Future Where Aging is Peaceful and Dignified",
-    content:
-      "Our vision is simple: To create a future where assisted living feels personal, peaceful, and truly supportive. A place where seniors can age gracefully, surrounded by care and kindness.",
-    image: "/images/pexels-arthur-swiffen-172080999-14185266.jpg",
-    imageAlt:
-      "Residents enjoying a peaceful moment in a naturally lit common area",
-  },
-];
+import { aboutTabs } from "@/lib/data/about";
 
 export default function AboutPage() {
   const [activeTab, setActiveTab] = useState("story");
-  const currentTab = tabs.find((tab) => tab.id === activeTab) || tabs[0];
+  const currentTab =
+    aboutTabs.find((aboutTab) => aboutTab.id === activeTab) || aboutTabs[0];
 
+  // preload all tab images
+  useEffect(() => {
+    aboutTabs.forEach((aboutTab) => {
+      const img = new window.Image();
+      img.src = aboutTab.image;
+    });
+  }, []);
   return (
     <>
       <Navigation />
@@ -78,21 +52,21 @@ export default function AboutPage() {
               aria-label="About us sections"
               className="mb-12 flex justify-center gap-8 border-b border-foreground/10"
             >
-              {tabs.map((tab) => (
+              {aboutTabs.map((aboutTab) => (
                 <button
-                  key={tab.id}
+                  key={aboutTab.id}
                   role="tab"
-                  aria-selected={activeTab === tab.id}
-                  aria-controls={`panel-${tab.id}`}
-                  id={`tab-${tab.id}`}
-                  onClick={() => setActiveTab(tab.id)}
+                  aria-selected={activeTab === aboutTab.id}
+                  aria-controls={`panel-${aboutTab.id}`}
+                  id={`tab-${aboutTab.id}`}
+                  onClick={() => setActiveTab(aboutTab.id)}
                   className={`cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
-                    activeTab === tab.id
+                    activeTab === aboutTab.id
                       ? "text-foreground font-medium"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {tab.label}
+                  {aboutTab.label}
                 </button>
               ))}
             </div>
@@ -139,38 +113,38 @@ export default function AboutPage() {
               </header>
               {/* Desktop: Tabs above text content */}
               <div className="hidden md:block mx-auto max-w-6xl w-full pb-8">
-                  <div className="mb-8">
-                    <div
-                      role="tablist"
-                      aria-label="About us sections"
-                      className="flex xl:justify-start gap-8 border-b border-[#E8DED0] pb-4"
-                    >
-                      {tabs.map((tab) => (
-                        <button
-                          key={tab.id}
-                          role="tab"
-                          aria-selected={activeTab === tab.id}
-                          aria-controls={`panel-${tab.id}`}
-                          id={`tab-desktop-${tab.id}`}
-                          onClick={() => setActiveTab(tab.id)}
-                          className={`leading-6 cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
-                            activeTab === tab.id
-                              ? "text-foreground font-medium"
-                              : "text-muted-foreground hover:text-foreground"
-                          }`}
-                        >
-                          {tab.label}
-                        </button>
-                      ))}
-                    </div>
+                <div className="mb-8">
+                  <div
+                    role="tablist"
+                    aria-label="About us sections"
+                    className="flex xl:justify-start gap-8 border-b border-[#E8DED0] pb-4"
+                  >
+                    {aboutTabs.map((aboutTab) => (
+                      <button
+                        key={aboutTab.id}
+                        role="about tab"
+                        aria-selected={activeTab === aboutTab.id}
+                        aria-controls={`panel-${aboutTab.id}`}
+                        id={`tab-desktop-${aboutTab.id}`}
+                        onClick={() => setActiveTab(aboutTab.id)}
+                        className={`leading-6 cursor-pointer relative pb-4 font-serif text-lg transition-colors ${
+                          activeTab === aboutTab.id
+                            ? "text-foreground font-medium"
+                            : "text-muted-foreground hover:text-foreground"
+                        }`}
+                      >
+                        {aboutTab.label}
+                      </button>
+                    ))}
                   </div>
-                  <h2 className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight mb-6">
-                    {currentTab.title}
-                  </h2>
-                  <p className="mb-6 leading-relaxed text-muted-foreground md:text-md">
-                    {currentTab.content}
-                  </p>
-                  </div>
+                </div>
+                <h2 className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight mb-6">
+                  {currentTab.title}
+                </h2>
+                <p className="mb-6 leading-relaxed text-muted-foreground md:text-md">
+                  {currentTab.content}
+                </p>
+              </div>
             </div>
           </div>
         </section>

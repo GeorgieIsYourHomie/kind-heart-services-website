@@ -60,6 +60,7 @@ export function Navigation() {
             <CustomButton
               text="Schedule a Tour"
               href="https://calendly.com/kindheartservicesllc/30min"
+              target="blank"
               icon={ArrowRight}
               iconPosition="right"
               size="sm"
@@ -125,9 +126,9 @@ export function Navigation() {
               <CustomButton
                 text="Schedule a Tour"
                 href="https://calendly.com/kindheartservicesllc/30min"
+                target="blank"
                 icon={ArrowRight}
                 iconPosition="right"
-                target="blank"
                 className="w-full"
                 ariaLabel="Schedule a tour of our assisted living facility"
                 onClick={() => setIsOpen(false)}
