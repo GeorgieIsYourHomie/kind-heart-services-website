@@ -1,10 +1,9 @@
 import type React from "react";
 import type { Metadata } from "next";
-import {  Lora, Work_Sans } from "next/font/google";
+import { Lora, Work_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
-
 
 const fontSerif = Lora({
   subsets: ["latin"],

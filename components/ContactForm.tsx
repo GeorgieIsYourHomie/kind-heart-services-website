@@ -3,7 +3,6 @@
 import type React from "react";
 
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
@@ -17,24 +16,65 @@ import {
 import { CustomButton } from "@/components/CustomButton";
 
 export function ContactForm() {
+  // form state
+  // for disabling button + showing spinner
   const [isSubmitting, setIsSubmitting] = useState(false);
+  // for showing success message
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    // 1. prevent default form submission behavior
     e.preventDefault();
+    // 2. show spinner + disable button
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // 3. extract form data
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    // 4. build payload
+    const data = {
+      firstName: String(formData.get("firstName") ?? ""),
+      lastName: String(formData.get("lastName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      message: String(formData.get("message") ?? ""),
+    };
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      (e.target as HTMLFormElement).reset();
-    }, 3000);
+    // 5. send JSON to your Next.js route (/api/contact)
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      // 6. handle response
+      const result = await response.json().catch(() => null);
+      // if server decided it failed
+      if (!response.ok) {
+        throw new Error(result?.message ?? "Failed to send message");
+      }
+
+      // if all good
+      setIsSuccess(true);
+      // reset form
+      form.reset();
+      // hide success message after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    } catch (err) {
+      // 7. handle unexpected errors
+      console.error("Contact form error:", err);
+      alert(
+        err instanceof Error
+          ? err.message
+          : "Failed to send message. Please try again."
+      );
+    } finally {
+      // 8. re-enable button + hide spinner
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,12 +87,14 @@ export function ContactForm() {
           Minnesota.
         </CardDescription>
       </CardHeader>
+
       <CardContent>
         <form
           onSubmit={handleSubmit}
           className="space-y-6"
           aria-label="Contact form"
         >
+          {/* Form fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
@@ -112,7 +154,7 @@ export function ContactForm() {
               type="submit"
               text={
                 isSubmitting
-                  ? "Sending..."
+                  ? "Sending... "
                   : isSuccess
                   ? "Message Sent!"
                   : "Send Message"
@@ -127,7 +169,7 @@ export function ContactForm() {
 
           {isSuccess && (
             <p
-              className="text-sm text-center text-secondary font-medium"
+              className="text-sm text-center text-primary font-medium"
               role="status"
               aria-live="polite"
             >
