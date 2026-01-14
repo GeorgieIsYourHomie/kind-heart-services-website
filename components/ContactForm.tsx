@@ -62,8 +62,6 @@ export function ContactForm() {
       setIsSuccess(true);
       // reset form
       form.reset();
-      // hide success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
     } catch (err) {
       // 7. handle unexpected errors
       console.error("Contact form error:", err);
