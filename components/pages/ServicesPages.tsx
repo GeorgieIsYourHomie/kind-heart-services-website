@@ -1,56 +1,62 @@
 import { serviceGroups } from "@/lib/data/services";
-import Image from "next/image";
+import { CustomImage } from "../CustomImage";
+import { siteImages } from "@/lib/content/images";
 
 export default function ServicesPage() {
   return (
     <main className="bg-background">
       <div className="grid grid-rows-[auto_auto_1fr] gap-4 lg:gap-15 pt-14">
-        {/* Header */}
+        {/* header */}
         <div className="px-4 md:px-16 flex flex-col justify-center mb-12">
           <h1 className="text-4xl md:text-6xl text-balance font-serif leading-tight tracking-tight mb-6">
             Comprehensive assisted living services for the best{" "}
             <span className="italic">care.</span>
           </h1>
+
           <p className="text-lg text-muted-foreground max-w-3xl mt-4">
             At Kind Heart Services, we provide a full range of personalized
             assisted living services designed to support independence, enhance
             quality of life, and ensure peace of mind for families in Minnesota.
           </p>
         </div>
-        {/* Image */}
+
+        {/* hero image */}
         <div className="px-4 md:px-16 pb-16">
-          {/* Image container */}
-          <div className="h-96 w-full overflow-hidden rounded-sm relative">
-            <Image
-              src="/images/the-unmistakables-suNS4qGA1i0-unsplash.jpg"
-              alt="Residents receiving compassionate care in our Minnesota assisted living facility"
-              fill
-              className="object-cover object-center xl:object-[center_35%]"
-              priority
-            />
-          </div>
+          <CustomImage
+            src={siteImages.services.hero}
+            alt="Residents receiving compassionate care in our Minnesota assisted living facility"
+            priority
+            sizes="100vw"
+            wrapperClassName="h-96 w-full overflow-hidden rounded-sm"
+            imageClassName="object-cover object-center xl:object-[center_35%]"
+          />
         </div>
 
-        {/* Services content */}
+        {/* services content */}
         <section
           className="bg-primary grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-16 px-4 md:px-16 py-14 pb-16"
           aria-labelledby="services-heading"
         >
+          {/* hidden heading keeps semantics without changing layout */}
+          <h2 id="services-heading" className="sr-only">
+            Assisted living services
+          </h2>
+
           {serviceGroups.map((group) => {
             return (
               <article
                 key={group.id}
                 className="text-background flex flex-col gap-8 lg:gap-12"
               >
-                {/* Service group title */}
+                {/* service group title */}
                 <div className="flex flex-col gap-4">
-                  <h2 className="font-serif font-semibold">{group.title}</h2>
+                  <h3 className="font-serif font-semibold">{group.title}</h3>
                   <p className="text-xl lg:text-3xl text-balance font-sans leading-tight tracking-tight">
                     {group.description}
                   </p>
                 </div>
 
-                {/* Service group services */}
+                {/* service group services */}
                 <div
                   className="flex flex-col gap-6"
                   role="list"
@@ -69,10 +75,11 @@ export default function ServicesPage() {
                             <Icon className="w-6 h-6 text-accent" />
                           </div>
                         </div>
+
                         <div>
-                          <h3 className="font-medium text-md mb-2">
+                          <h4 className="font-medium text-md mb-2">
                             {service.serviceSnapshotTitle}
-                          </h3>
+                          </h4>
                           <p className="text-background/90 text-base leading-relaxed">
                             {service.serviceSnapshotDescription}
                           </p>

@@ -12,9 +12,9 @@ export default function ContactSection() {
       className="bg-primary scroll-mt-20"
       aria-labelledby="contact-heading"
     >
-      {/* Section Container */}
+      {/* section container */}
       <div className="flex flex-col items-stretch gap-12">
-        {/* ───────────── HEADER ───────────── */}
+        {/* header */}
         <div className="max-w-4xl mx-auto px-4 md:px-16 text-center w-full pt-14">
           <h2
             id="contact-heading"
@@ -31,7 +31,7 @@ export default function ContactSection() {
             home-like environment for our residents.
           </p>
 
-          {/* Buttons */}
+          {/* buttons */}
           <div className="flex flex-wrap justify-center gap-4 mb-8 w-full">
             <CustomButton
               text="Plan Your Visit"
@@ -71,13 +71,13 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* ───────────── CONTACT INFO ───────────── */}
+        {/* contact info */}
         <div
           className="px-4 md:px-16 text-background max-w-full flex flex-wrap justify-center items-start gap-6 md:gap-10"
           role="list"
           aria-label="Contact information"
         >
-          {/* Location */}
+          {/* location */}
           <address
             className="flex flex-col md:flex-row items-center md:items-start gap-4 not-italic"
             role="listitem"
@@ -100,7 +100,7 @@ export default function ContactSection() {
             </div>
           </address>
 
-          {/* Tour Hours */}
+          {/* tour hours */}
           <div
             className="flex flex-col md:flex-row items-center md:items-start gap-4"
             role="listitem"
@@ -125,9 +125,9 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* ───────────── IMAGE + FORM (mobile stacks / desktop side-by-side) ───────────── */}
+        {/* image and form (mobile stacks / desktop side-by-side) */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2">
-          {/* Image */}
+          {/* image */}
           <div className="col-span-1 md:pl-16">
             <CustomImage
               src="/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg"
@@ -139,13 +139,13 @@ export default function ContactSection() {
             />
           </div>
 
-          {/* Contact Form */}
+          {/* contact form */}
           <div className="col-span-1 px-4 md:pr-16 md:px-0">
             <ContactForm />
           </div>
         </div>
 
-        {/* ───────────── GOOGLE MAP ───────────── */}
+        {/* Google Map */}
         <GoogleMaps />
       </div>
     </section>

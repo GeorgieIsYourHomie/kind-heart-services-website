@@ -11,7 +11,7 @@ export function ServicesSection() {
       aria-labelledby="services-heading"
     >
       <div className="grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
-        {/* ───────────── TOP (1/5) ───────────── */}
+        {/* top (1/5) */}
         <div className="text-center flex flex-col items-center gap-4">
           <h2
             id="services-heading"
@@ -29,7 +29,7 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* ───────────── IMAGES ───────────── */}
+        {/* images */}
         <div className="grid grid-cols-2 gap-4 h-full">
           <div className="col-span-2 md:col-span-1">
             <CustomImage
@@ -54,7 +54,7 @@ export function ServicesSection() {
           </div>
         </div>
 
-        {/* ───────────── SERVICES LIST ───────────── */}
+        {/* services list */}
         <div className="w-full flex flex-col justify-center gap-8 md:gap-12">
           <div className="flex flex-col justify-center gap-6 lg:grid lg:grid-cols-3">
             {serviceGroups.map((group) =>
@@ -90,7 +90,7 @@ export function ServicesSection() {
             )}
           </div>
 
-          {/* ───────────── CTA ───────────── */}
+          {/* CTA */}
           <div className="flex justify-center">
             <Button
               variant="outline"

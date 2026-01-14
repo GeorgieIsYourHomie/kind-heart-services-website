@@ -29,7 +29,7 @@ export default function AboutPage() {
       <Navigation />
 
       <main className="bg-background scroll-mt-20">
-        {/* ───────────── INTRO (mobile) ───────────── */}
+        {/* intro (mobile) */}
         <section
           className="xl:hidden mx-auto max-w-3xl px-6 py-16 text-center md:py-24"
           aria-labelledby="about-intro-heading"
@@ -49,9 +49,9 @@ export default function AboutPage() {
           </p>
         </section>
 
-        {/* ───────────── TABS + CONTENT ───────────── */}
+        {/* tabs + content */}
         <section className="w-full" aria-label="About sections">
-          {/* Mobile: tabs above content */}
+          {/* mobile: tabs above content */}
           <div className="md:hidden mx-auto max-w-6xl px-6">
             <div
               role="tablist"
@@ -79,14 +79,14 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Content panel */}
+          {/* content panel */}
           <div
             role="tabpanel"
             id={`panel-${currentTab.id}`}
             aria-labelledby={`tab-${currentTab.id}`}
             className="grid grid-cols-1 md:grid-cols-2 gap-0"
           >
-            {/* ───────────── IMAGE ───────────── */}
+            {/* image */}
             <div className="order-2 md:order-1 w-full">
               <CustomImage
                 src={currentTab.image || "/placeholder.svg"}
@@ -99,9 +99,9 @@ export default function AboutPage() {
               />
             </div>
 
-            {/* ───────────── TEXT ───────────── */}
+            {/* text */}
             <div className="order-1 md:order-2 flex flex-col px-4 md:px-16">
-              {/* Desktop intro */}
+              {/* desktop intro */}
               <header
                 className="hidden xl:block mx-auto max-w-3xl py-16"
                 aria-labelledby="about-intro-heading-desktop"
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 </p>
               </header>
 
-              {/* Desktop: tabs above text content */}
+              {/* desktop: tabs above text content */}
               <div className="hidden md:block mx-auto max-w-6xl w-full pb-8">
                 <div className="mb-8">
                   <div

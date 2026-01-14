@@ -10,7 +10,7 @@ export function HealthSafetySection() {
       aria-labelledby="health-safety-heading"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
-        {/* ───────────── CONTENT ───────────── */}
+        {/* content */}
         <div className="w-full mx-auto text-foreground">
           <h2
             id="health-safety-heading"
@@ -55,7 +55,7 @@ export function HealthSafetySection() {
           </div>
         </div>
 
-        {/* ───────────── IMAGE ───────────── */}
+        {/* image */}
         <div className="w-full">
           <CustomImage
             src={siteImages.home.healthSafety}

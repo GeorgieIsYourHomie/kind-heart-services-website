@@ -11,7 +11,7 @@ export function AmenitiesSection() {
       aria-labelledby="amenities-heading"
     >
       <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
-        {/* ───────────── IMAGE ───────────── */}
+        {/* image */}
         <div className="col-span-2 md:col-span-1">
           <CustomImage
             src={siteImages.home.amenities}
@@ -23,7 +23,7 @@ export function AmenitiesSection() {
           />
         </div>
 
-        {/* ───────────── CONTENT ───────────── */}
+        {/* content */}
         <div className="col-span-1 max-w-full mx-auto">
           <h2
             id="amenities-heading"
@@ -66,7 +66,7 @@ export function AmenitiesSection() {
           </div>
         </div>
 
-        {/* ───────────── MOBILE AMENITIES GRID ───────────── */}
+        {/* mobile amenities grid */}
         <div
           className="col-span-2 lg:hidden grid grid-cols-2 md:grid-cols-4 gap-6"
           role="list"
