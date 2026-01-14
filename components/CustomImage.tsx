@@ -2,7 +2,9 @@
 
 import Image, { type ImageProps } from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type CustomImageProps = {
   // wrapper controls container layout (size, radius, overflow, shadow, etc.)
@@ -46,25 +48,36 @@ export function CustomImage({
   priority = false,
   ariaHidden,
 }: CustomImageProps) {
-  // 1. image wrapper (controls layout + clipping)
+  // 1. track load state (visual only)
+  const [loaded, setLoaded] = useState(false);
+
   const image = (
     <div
       className={cn("relative overflow-hidden", wrapperClassName)}
       title={title}
       aria-hidden={ariaHidden}
     >
+      {/* 2. soft skeleton overlay (never blocks image) */}
+      {!loaded && <Skeleton className="absolute inset-0 h-full w-full z-10" />}
+
+      {/* 3. image always renders */}
       <Image
         src={src}
         alt={alt}
         fill={fill}
         sizes={sizes}
         priority={priority}
-        className={cn("object-cover", imageClassName)}
+        className={cn(
+          "object-cover transition-opacity duration-200",
+          loaded ? "opacity-100" : "opacity-100",
+          imageClassName
+        )}
+        onLoad={() => setLoaded(true)}
       />
     </div>
   );
 
-  // 2. optional link wrapper
+  // 4. optional link wrapper
   if (!href) return image;
 
   return (
