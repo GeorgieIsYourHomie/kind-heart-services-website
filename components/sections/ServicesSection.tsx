@@ -1,15 +1,10 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
-import Image from "next/image";
 import Link from "next/link";
 import { serviceGroups } from "@/lib/data/services";
 import { Button } from "../ui/button";
+import { CustomImage } from "../CustomImage";
+import { siteImages } from "@/lib/content/images";
 
-export function ServicesSnapshot() {
+export function ServicesSection() {
   return (
     <section
       className="w-full bg-background"
@@ -18,7 +13,6 @@ export function ServicesSnapshot() {
       <div className="grid grid-rows-[auto_1fr_auto] w-full px-4 md:px-16 py-14 gap-6 md:gap-10">
         {/* ───────────── TOP (1/5) ───────────── */}
         <div className="text-center flex flex-col items-center gap-4">
-          {/* Left: Text */}
           <h2
             id="services-heading"
             className="text-4xl md:text-5xl text-balance font-serif leading-tight tracking-tight mb-6"
@@ -26,6 +20,7 @@ export function ServicesSnapshot() {
             <span className="italic">Care </span>
             <span>Services</span>
           </h2>
+
           <p className="text-lg text-muted-foreground max-w-2xl text-pretty">
             We offer personalized assisted living services designed to support
             daily life with comfort and peace of mind. Each care plan is
@@ -34,26 +29,32 @@ export function ServicesSnapshot() {
           </p>
         </div>
 
+        {/* ───────────── IMAGES ───────────── */}
         <div className="grid grid-cols-2 gap-4 h-full">
-          <div className="col-span-2 md:col-span-1 relative aspect-4/3 w-full overflow-hidden rounded-sm">
-            <Image
-              src="/images/age-cymru-GPrh_GLiWCI-unsplash.jpg"
+          <div className="col-span-2 md:col-span-1">
+            <CustomImage
+              src={siteImages.home.servicesSnapshotA}
               alt="Warm assisted living environment"
-              fill
-              className="object-cover object-top"
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              wrapperClassName="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+              imageClassName="object-cover object-top"
             />
           </div>
-          <div className="relative aspect-4/3 w-full overflow-hidden rounded-sm hidden md:block">
-            <Image
-              src="/images/age-cymru-bSXk1lOp8T0-unsplash.jpg"
+
+          <div className="hidden md:block">
+            <CustomImage
+              src={siteImages.home.servicesSnapshotB}
               alt="Warm assisted living environment"
-              fill
-              className="object-cover object-top"
               priority
+              sizes="50vw"
+              wrapperClassName="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+              imageClassName="object-cover object-top"
             />
           </div>
         </div>
+
+        {/* ───────────── SERVICES LIST ───────────── */}
         <div className="w-full flex flex-col justify-center gap-8 md:gap-12">
           <div className="flex flex-col justify-center gap-6 lg:grid lg:grid-cols-3">
             {serviceGroups.map((group) =>
@@ -68,13 +69,13 @@ export function ServicesSnapshot() {
                 }
 
                 return (
-                  // Add icons from health and saftey section layout
                   <article key={service.slug} className="flex flex-row gap-4">
                     <div className="shrink-0" aria-hidden="true">
                       <div className="h-12 w-12 bg-primary/10 rounded-sm flex items-center justify-center">
                         <service.icon className="w-6 h-6 text-primary" />
                       </div>
                     </div>
+
                     <div>
                       <h3 className="font-medium text-md mb-2">
                         {service.serviceSnapshotTitle}
@@ -89,6 +90,7 @@ export function ServicesSnapshot() {
             )}
           </div>
 
+          {/* ───────────── CTA ───────────── */}
           <div className="flex justify-center">
             <Button
               variant="outline"
