@@ -1,13 +1,8 @@
 import { BookOpen, Palmtree, Music, Flower } from "lucide-react";
 import { CustomImage } from "../CustomImage";
 import { siteImages } from "@/lib/content/images";
+import { amenities } from "@/lib/content/amenities";
 
-const amenities = [
-  { icon: BookOpen, label: "Reading Library" },
-  { icon: Palmtree, label: "Garden & Patio" },
-  { icon: Music, label: "Music & Engagement" },
-  { icon: Flower, label: "Nature Walks" },
-];
 
 export function AmenitiesSection() {
   return (
