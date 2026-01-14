@@ -170,7 +170,7 @@ export function ContactForm() {
                   ? "Message Sent!"
                   : "Send Message"
               }
-              className="w-full md:w-auto"
+              className="w-full md:w-auto hover:cursor-pointer"
               disabled={isSubmitting}
               ariaLabel={
                 isSubmitting ? "Sending message" : "Submit contact form"
