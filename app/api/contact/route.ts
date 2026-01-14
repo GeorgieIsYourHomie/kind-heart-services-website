@@ -7,6 +7,7 @@ type ContactPayload = {
   email: string;
   phone: string;
   message: string;
+  website?: string; // honeypot
 };
 
 // initialize Resend client
@@ -24,6 +25,7 @@ export async function POST(request: NextRequest) {
     const email = (body.email ?? "").trim();
     const phone = (body.phone ?? "").trim();
     const message = (body.message ?? "").trim();
+    const website = (body.website ?? "").trim(); // honeypot
 
     // validate required fields
     if (!firstName || !lastName || !email || !phone || !message) {
@@ -31,6 +33,11 @@ export async function POST(request: NextRequest) {
         { success: false, message: "All fields are required" },
         { status: 400 }
       );
+    }
+    // if honeypot has ANY value, it's probably a bot
+    if (website) {
+      // Return success to avoid teaching bots anything (silent fail)
+      return NextResponse.json({ success: true, message: "OK" });
     }
 
     // safety check: make sure Resend API key exists

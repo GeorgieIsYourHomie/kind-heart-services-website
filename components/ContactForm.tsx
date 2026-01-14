@@ -40,6 +40,7 @@ export function ContactForm() {
       email: String(formData.get("email") ?? ""),
       phone: String(formData.get("phone") ?? ""),
       message: String(formData.get("message") ?? ""),
+      website: String(formData.get("website") ?? ""), // honeypot
     };
 
     // 5. send JSON to your Next.js route (/api/contact)
@@ -94,7 +95,6 @@ export function ContactForm() {
           className="space-y-6"
           aria-label="Contact form"
         >
-          {/* Form fields */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="firstName">First Name</Label>
@@ -149,6 +149,19 @@ export function ContactForm() {
               aria-required="true"
             />
           </div>
+
+          {/* Honeypot field for bot spam protection */}
+          <div className="absolute -left-2499.75" aria-hidden="true">
+            <label htmlFor="website">website</label>
+            <input
+              id="website"
+              name="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div className="flex justify-center">
             <CustomButton
               type="submit"
