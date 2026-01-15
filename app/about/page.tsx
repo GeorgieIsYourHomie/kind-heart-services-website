@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
-import Image from "next/image";
 import { CustomImage } from "@/components/CustomImage";
 import { aboutTabs } from "@/lib/content/about";
+import { CustomButton } from "@/components/CustomButton";
 
 export default function AboutPage() {
   // 1. tab state
@@ -47,6 +46,15 @@ export default function AboutPage() {
             providing compassionate, personalized care in a warm, home-like
             setting.
           </p>
+
+          <CustomButton
+            text="Experience Our Warmth"
+            variant="outline"
+            href="/#contact-section"
+            size="lg"
+            className="w-full sm:flex-1 md:hidden"
+            ariaLabel="Connect With Us - navigate to contact section"
+          />
         </section>
 
         {/* tabs + content */}
@@ -86,6 +94,15 @@ export default function AboutPage() {
             aria-labelledby={`tab-${currentTab.id}`}
             className="grid grid-cols-1 md:grid-cols-2 gap-0"
           >
+            <div className="md:hidden px-6 text-balance text-center">
+              <h2 className="text-xl lg:text-3xl font-sans leading-tight tracking-tight mb-6">
+                {currentTab.title}
+              </h2>
+
+              <p className="mb-6 leading-relaxed text-muted-foreground md:text-md">
+                {currentTab.content}
+              </p>
+            </div>
             {/* image */}
             <div className="order-2 md:order-1 w-full">
               <CustomImage

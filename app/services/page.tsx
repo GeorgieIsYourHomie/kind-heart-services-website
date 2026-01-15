@@ -3,6 +3,7 @@ import { Footer } from "@/components/Footer";
 import { serviceGroups } from "@/lib/data/services";
 import { CustomImage } from "@/components/CustomImage";
 import { siteImages } from "@/lib/content/images";
+import { CustomButton } from "@/components/CustomButton";
 
 export default function ServicesPage() {
   return (
@@ -17,12 +18,21 @@ export default function ServicesPage() {
               <span className="italic">care.</span>
             </h1>
 
-            <p className="text-lg text-muted-foreground max-w-3xl mt-4">
+            <p className="text-lg text-muted-foreground max-w-3xl mt-4 mb-6">
               At Kind Heart Services, we provide a full range of personalized
               assisted living services designed to support independence, enhance
               quality of life, and ensure peace of mind for families in
               Minnesota.
             </p>
+
+            <CustomButton
+              text="Connect With Us"
+              variant="outline"
+              href="/#contact-section"
+              size="lg"
+              className="w-full sm:flex-1 md:hidden"
+              ariaLabel="Connect With Us - navigate to contact section"
+            />
           </div>
 
           {/* hero image */}
@@ -42,7 +52,6 @@ export default function ServicesPage() {
             className="bg-primary grid grid-cols-1 lg:grid-cols-3 gap-16 md:gap-16 px-4 md:px-16 py-14 pb-16"
             aria-labelledby="services-heading"
           >
-
             {serviceGroups.map((group) => {
               return (
                 <article

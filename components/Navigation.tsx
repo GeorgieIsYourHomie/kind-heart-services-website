@@ -64,6 +64,14 @@ export function Navigation() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-sm font-medium hover:text-primary transition-colors"
+                >
+                  FAQs
+                </Link>
+              </li>
             </ul>
 
             {/* primary CTA */}
@@ -138,6 +146,15 @@ export function Navigation() {
                   onClick={() => setIsOpen(false)}
                 >
                   Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/faq"
+                  className="text-sm font-medium hover:text-primary transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  FAQs
                 </Link>
               </li>
 

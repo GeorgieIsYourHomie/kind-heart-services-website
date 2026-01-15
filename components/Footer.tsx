@@ -52,6 +52,14 @@ export function Footer() {
                   Contact
                 </Link>
               </li>
+              <li role="listitem">
+                <Link
+                  href="/faq"
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                  FAQs
+                </Link>
+              </li>
             </ul>
           </nav>
 
