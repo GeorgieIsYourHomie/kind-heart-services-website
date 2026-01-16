@@ -6,7 +6,7 @@ export const faqs: FAQItem[] = [
     category: "general",
     question: "What is assisted living?",
     answer:
-      "Assisted living provides help with daily activities while supporting independence and routine. At Kind Heart Services in Minnesota, care is personalized in a warm, home-like environment.",
+      "Assisted living provides help with daily activities while supporting independence and routine. At Kind Heart Services here in Minnesota, care is personalized in a warm, home-like environment.",
     keywords: [
       "assisted living",
       "Minnesota assisted living",
@@ -88,7 +88,7 @@ export const faqs: FAQItem[] = [
     category: "family",
     question: "Can family members visit residents?",
     answer:
-      "Yes. We welcome family visits and encourage ongoing connection with loved ones.",
+      "Yes! We welcome family visits and completely encourage ongoing connection with loved ones.",
     keywords: ["family visits", "visitation"],
   },
   {

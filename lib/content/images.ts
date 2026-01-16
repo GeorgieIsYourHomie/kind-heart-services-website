@@ -1,7 +1,7 @@
 export const siteImages = {
   about: {
     story: "/images/pexels-jsme-mila-523821574-18459207.jpg",
-    mission: "/images/pexels-ron-lach-8527726.jpg",
+    mission: "/images/pexels-jsme-mila-523821574-29372710.jpg",
     vision: "/images/pexels-arthur-swiffen-172080999-14185266.jpg",
   },
   home: {
@@ -11,8 +11,10 @@ export const siteImages = {
     healthSafety: "/images/fanny-renaud-71KMQp-Qkvw-unsplash.jpg",
   },
   contact: {
-    header: "/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg",
-    formSide: "/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg",
+    imageASrc: "/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg",
+    imageAAlt: "Woman and child looking at a flower.",
+    imageBSrc: "/images/pexels-jsme-mila-523821574-18459205.jpg",
+    imageBAlt: "Elderly woman and her pets, sitting in her cozy bed.",
   },
   services: {
     hero: "/images/the-unmistakables-suNS4qGA1i0-unsplash.jpg",

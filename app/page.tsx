@@ -9,8 +9,13 @@ import { AmenitiesSection } from "@/components/sections/AmenitiesSection";
 import { HealthSafetySection } from "@/components/sections/HealthSafetySection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import ContactSection from "@/components/sections/ContactSection";
+import { siteImages } from "@/lib/content/images";
 
 export default function HomePage() {
+  const contactSectionImage = {
+    src: siteImages.contact.imageASrc,
+    alt: siteImages.contact.imageAAlt,
+  };
   return (
     <>
       <Navigation />
@@ -24,7 +29,7 @@ export default function HomePage() {
         <AmenitiesSection />
         <HealthSafetySection />
         <TestimonialsSection />
-        <ContactSection />
+        <ContactSection image={contactSectionImage} />
       </main>
       <Footer />
     </>

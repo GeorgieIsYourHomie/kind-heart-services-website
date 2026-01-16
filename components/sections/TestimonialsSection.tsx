@@ -4,13 +4,13 @@ import { Quote } from "lucide-react";
 const testimonials = [
   {
     quote:
-      "The care my mother receives at Kind Heart Services is exceptional. The staff treats her like family, and I can see how happy she is. It's truly a home away from home.",
+      "I'm so relieved with the care Mom gets at Kind Heart. The staff treat her with such kindness, almost like family, and it's clear she's comfortable and happy there. It really feels like a second home for her.",
     author: "Sarah M.",
     relation: "Daughter of Resident",
   },
   {
     quote:
-      "We couldn't have found a better place for my father. The personalized attention and genuine compassion shown by everyone at Kind Heart Services gives us complete peace of mind.",
+      "I can’t thank the staff at Kind Heart Services enough. The personalized attention my father receives is amazing. They really go above and beyond, which has completely eased our worries.",
     author: "Michael T.",
     relation: "Son of Resident",
   },

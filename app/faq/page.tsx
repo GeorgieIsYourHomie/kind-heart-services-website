@@ -8,14 +8,20 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faqs } from "@/lib/content/faq";
+import { siteImages } from "@/lib/content/images";
 
 export default function FAQPage() {
+ const contactSectionImage = {
+    src: siteImages.contact.imageBSrc,
+    alt: siteImages.contact.imageBAlt,
+  };
+
   return (
     <>
       <Navigation />
 
       <main className="mx-auto bg-background scroll-mt-20">
-        <section  aria-labelledby="about-intro-heading">
+        <section aria-labelledby="about-intro-heading">
           <div className="mx-auto max-w-4xl px-4 md:px-16 py-14">
             {/* h1 */}
             <h1 className="text-4xl md:text-6xl text-balance font-serif leading-tight tracking-tight mb-18">
@@ -153,7 +159,7 @@ export default function FAQPage() {
         </section>
 
         {/* Contact CTA */}
-        <ContactSection/>
+        <ContactSection image={contactSectionImage} />
       </main>
       <Footer />
     </>

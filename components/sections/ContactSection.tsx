@@ -5,7 +5,14 @@ import { kindHeartServicesContactInfo } from "@/lib/data/kindheartservices-conta
 import GoogleMaps from "../GoogleMaps";
 import { CustomImage } from "../CustomImage";
 
-export default function ContactSection() {
+type ContactSectionProps = {
+  image: {
+    src: string;
+    alt: string;
+  };
+};
+
+export default function ContactSection({ image }: ContactSectionProps) {
   return (
     <section
       id="contact-section"
@@ -130,8 +137,8 @@ export default function ContactSection() {
           {/* image */}
           <div className="col-span-1 md:pl-16">
             <CustomImage
-              src="/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg"
-              alt="Welcoming entrance to our Minnesota assisted living facility"
+              src={image.src}
+              alt={image.alt}
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
               wrapperClassName="shadow-xl w-full h-86 sm:h-80 md:h-full rounded-tl-none md:rounded-bl-none md:rounded-tl-sm md:rounded-bl-sm mb-10"
