@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
     const website = (body.website ?? "").trim(); // honeypot
 
     // 3. validate required fields
-    if (!firstName || !lastName || !email || !phone || !message || !website) {
+    if (!firstName || !lastName || !email || !phone || !message) {
       return NextResponse.json(
         { success: false, message: "All fields are required" },
         { status: 400 }
