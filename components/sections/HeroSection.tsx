@@ -1,6 +1,7 @@
 import { CustomButton } from "@/components/CustomButton";
 import { CustomImage } from "@/components/CustomImage";
 import { ArrowRight } from "lucide-react";
+import { siteImages } from "@/lib/content/images";
 
 export function HeroSection() {
   return (
@@ -50,8 +51,8 @@ export function HeroSection() {
 
         {/* hero image */}
         <CustomImage
-          src="/images/age-cymru-qW3DLnehg9w-unsplash.jpg"
-          alt="Comfortable living room in a warm, home-like assisted living facility in Minnesota"
+          src={siteImages.home.src.hero}
+          alt={siteImages.home.alt.hero}
           priority
           sizes="100vw"
           wrapperClassName="h-96 xl:h-120 w-full rounded-sm"

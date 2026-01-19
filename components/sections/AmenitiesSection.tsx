@@ -3,7 +3,6 @@ import { CustomImage } from "../CustomImage";
 import { siteImages } from "@/lib/content/images";
 import { amenities } from "@/lib/content/amenities";
 
-
 export function AmenitiesSection() {
   return (
     <section
@@ -14,9 +13,9 @@ export function AmenitiesSection() {
         {/* image */}
         <div className="col-span-2 md:col-span-1">
           <CustomImage
-            src={siteImages.home.amenities}
-            alt="Residents enjoying activities in a comfortable common area at our Minnesota assisted living facility"
-            priority
+            src={siteImages.home.src.amenities}
+            alt={siteImages.home.alt.amenities}
+          priority
             sizes="(max-width: 768px) 100vw, 50vw"
             wrapperClassName="w-full h-[280px] md:h-[360px] overflow-hidden rounded-sm"
             imageClassName="object-cover object-top md:object-right lg:object-top"

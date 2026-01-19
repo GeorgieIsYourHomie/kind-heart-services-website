@@ -12,8 +12,8 @@ import { siteImages } from "@/lib/content/images";
 
 export default function FAQPage() {
  const contactSectionImage = {
-    src: siteImages.contact.imageBSrc,
-    alt: siteImages.contact.imageBAlt,
+    src: siteImages.contact.src.imageB,
+    alt: siteImages.contact.alt.imageB,
   };
 
   return (

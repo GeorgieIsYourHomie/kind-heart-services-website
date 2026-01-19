@@ -33,8 +33,8 @@ export function ServicesSection() {
         <div className="grid grid-cols-2 gap-4 h-full">
           <div className="col-span-2 md:col-span-1">
             <CustomImage
-              src={siteImages.home.servicesSnapshotA}
-              alt="Warm assisted living environment"
+              src={siteImages.home.src.servicesSnapshotA}
+              alt={siteImages.home.alt.servicesSnapshotA}
               priority
               sizes="(max-width: 768px) 100vw, 50vw"
               wrapperClassName="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
@@ -44,8 +44,8 @@ export function ServicesSection() {
 
           <div className="hidden md:block">
             <CustomImage
-              src={siteImages.home.servicesSnapshotB}
-              alt="Warm assisted living environment"
+              src={siteImages.home.src.servicesSnapshotB}
+              alt={siteImages.home.alt.servicesSnapshotB}
               priority
               sizes="50vw"
               wrapperClassName="relative aspect-[4/3] w-full overflow-hidden rounded-sm"

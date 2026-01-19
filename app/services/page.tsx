@@ -38,8 +38,8 @@ export default function ServicesPage() {
           {/* hero image */}
           <div className="px-4 md:px-16 pb-16">
             <CustomImage
-              src={siteImages.services.hero}
-              alt="Residents receiving compassionate care in our Minnesota assisted living facility"
+              src={siteImages.services.src.hero}
+              alt={siteImages.services.alt.hero}
               priority
               sizes="100vw"
               wrapperClassName="h-96 w-full overflow-hidden rounded-sm"

@@ -58,8 +58,8 @@ export function HealthSafetySection() {
         {/* image */}
         <div className="w-full">
           <CustomImage
-            src={siteImages.home.healthSafety}
-            alt="Clean, safe, and well-maintained assisted living facility environment"
+            src={siteImages.home.src.healthSafety}
+            alt={siteImages.home.alt.healthSafety}
             priority
             sizes="(max-width: 768px) 100vw, 50vw"
             wrapperClassName="w-full h-[360px] md:h-full overflow-hidden rounded-sm"

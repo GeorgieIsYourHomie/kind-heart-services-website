@@ -13,8 +13,8 @@ import { siteImages } from "@/lib/content/images";
 
 export default function HomePage() {
   const contactSectionImage = {
-    src: siteImages.contact.imageASrc,
-    alt: siteImages.contact.imageAAlt,
+    src: siteImages.contact.src.imageA,
+    alt: siteImages.contact.alt.imageA,
   };
   return (
     <>

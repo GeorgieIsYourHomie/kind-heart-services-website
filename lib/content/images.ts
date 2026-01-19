@@ -1,22 +1,53 @@
 export const siteImages = {
-  about: {
-    story: "/images/pexels-jsme-mila-523821574-18459207.jpg",
-    mission: "/images/pexels-jsme-mila-523821574-29372710.jpg",
-    vision: "/images/pexels-arthur-swiffen-172080999-14185266.jpg",
-  },
   home: {
-    servicesSnapshotA: "/images/age-cymru-GPrh_GLiWCI-unsplash.jpg",
-    servicesSnapshotB: "/images/pexels-kampus-7551668.jpg",
-    amenities: "/images/pexels-rdne-6148866.jpg",
-    healthSafety: "/images/fanny-renaud-71KMQp-Qkvw-unsplash.jpg",
+    src: {
+      hero: "/images/hero-section.jpg",
+      servicesSnapshotA: "/images/services-snapshot-a.jpg",
+      servicesSnapshotB: "/images/services-snapshot-b.jpg",
+      amenities: "/images/amenities-section.jpg",
+      healthSafety: "/images/health-and-safety-section.jpg",
+    },
+    alt: {
+      hero:
+        "Comfortable living room in a warm, home-like assisted living facility in Minnesota",
+      servicesSnapshotA:
+        "Young and elderly women sitting and smiling with one another.",
+      servicesSnapshotB: "Young woman helping elderly man with medication.",
+      amenities:
+        "Young woman holding elderly woman's hands as they smile with one another.",
+      healthSafety: "Elderly woman placing flower in pot.",
+    },
   },
-  contact: {
-    imageASrc: "/images/sergiu-valena-7VPdLfzLwg8-unsplash.jpg",
-    imageAAlt: "Woman and child looking at a flower.",
-    imageBSrc: "/images/pexels-jsme-mila-523821574-18459205.jpg",
-    imageBAlt: "Elderly woman and her pets, sitting in her cozy bed.",
+  about: {
+    src: {
+      story: "/images/about-page-story.jpg",
+      mission: "/images/about-page-mission.jpg",
+      vision: "/images/about-page-vision.jpg",
+    },
+    alt: {
+      story:
+        "Caregivers having a warm conversation with a resident in a comfortable living space",
+      mission: "Caregiver gently supporting a resident during a daily activity",
+      vision:
+        "Residents enjoying a peaceful moment in a naturally lit common area",
+    },
   },
   services: {
-    hero: "/images/the-unmistakables-suNS4qGA1i0-unsplash.jpg",
+    src: {
+      hero: "/images/services-page.jpg",
+    },
+    alt: {
+      hero: "Residents receiving compassionate care in our Minnesota assisted living facility",
+    },
   },
-} as const;
+  contact: {
+    src: {
+      imageA: "/images/contact-section-image-a.jpg",
+      imageB: "/images/contact-section-image-b.jpg",
+    },
+    alt: {
+      imageA: "Woman and child looking at a flower.",
+      imageB: "Elderly woman and her pets, sitting in her cozy bed.",
+    },
+  },
+};
